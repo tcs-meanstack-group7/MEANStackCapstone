@@ -1,4 +1,4 @@
-let ProductModel = require("../model/product.model.js");
+let ProductModel = require("../models/product.model.js");
 
 //Retrieve all product details 
 let getProductDetails =(req,res)=> {

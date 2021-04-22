@@ -7,6 +7,6 @@ let ProductSchema = mongoose.Schema({
     price:Number
 })
 
-let ProductModel = mongoose.model("",ProductSchema,"Product");
+let ProductModel = mongoose.model("product",ProductSchema,"Products");
 
 module.exports = ProductModel
