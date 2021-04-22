@@ -9,6 +9,8 @@ const express = require('express');
 const passportJWT = require('./middlewares/passportJWT')();
 const errorHandler = require('./middlewares/errorHandler');
 const authRoutes = require("./routers/auth");
+const empRoutes = require("./routers/emp");
+
 
 //Database URL Details 
 let url = "mongodb://localhost:27017/meanstack";
@@ -46,6 +48,7 @@ var Product = require("./routers/product.router.js");
 
 app.use("/product",Product)
 app.use('/api/auth', authRoutes);
+app.use('/api/emp', empRoutes);
 app.use(errorHandler)
 
 //app.use("/order",Order)
