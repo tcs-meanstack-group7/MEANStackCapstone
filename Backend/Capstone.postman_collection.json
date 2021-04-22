@@ -62,6 +62,64 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "EMP Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\":\"emp1\",\n    \"password\":\"myPass\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/emp/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"emp",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EMP Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\":\"emp1\",\n    \"password\":\"myPass\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/emp/login",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"emp",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
