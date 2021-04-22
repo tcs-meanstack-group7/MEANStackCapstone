@@ -14,6 +14,10 @@ import { EmpLogoutComponent } from './emp-logout/emp-logout.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { EmpPanelComponent } from './emp-panel/emp-panel.component';
 import { UserTypeComponent } from './user-type/user-type.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { UserTypeComponent } from './user-type/user-type.component';
     EmpLogoutComponent,
     EmpLoginComponent,
     EmpPanelComponent,
-    UserTypeComponent
+    UserTypeComponent,
+    AdminLoginComponent,
+    AdminPanelComponent,
+    UserLoginComponent,
+    UserPanelComponent
   ],
   imports: [
     BrowserModule,
