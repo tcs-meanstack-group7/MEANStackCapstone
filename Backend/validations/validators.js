@@ -7,7 +7,3 @@ exports.isEmail = body('email')
 exports.hasPassword = body('password')
     .exists()
     .withMessage("Password cannot be empty")
-
-exports.hasName = body('name')
-    .isLength({min:3})
-    .withMessage("Name is required. Min length 3 characters.")

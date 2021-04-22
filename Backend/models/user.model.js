@@ -10,7 +10,7 @@ const UserSchema = new Schema({
     lname:{type:String,required:true},
     dob:{type:Date,required:true},
     pnumber:{type:Number,required:true},
-    address:{type:Number,required:true},
+    address:{type:String,required:true},
     cart:[{type:Schema.Types.ObjectId, ref: "product"}],
     funds:{type:Number,required:true}
 });
