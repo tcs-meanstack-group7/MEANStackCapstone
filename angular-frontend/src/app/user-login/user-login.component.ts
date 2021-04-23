@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import {Register} from './register';
 
 @Component({
   selector: 'app-user-login',
@@ -19,10 +18,5 @@ export class UserLoginComponent implements OnInit {
     //session Id or JWT (Json web Token);
     sessionStorage.setItem("token","123");
     this.router.navigate(["auser-panel"]);
-  }
-
-  // routes user to register page
-  register(){
-    this.router.navigate(["register"]);
   }
 }

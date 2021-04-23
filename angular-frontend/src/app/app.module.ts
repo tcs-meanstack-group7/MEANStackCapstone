@@ -18,7 +18,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
-import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { RegisterComponent } from './register/register.component';
     AdminLoginComponent,
     AdminPanelComponent,
     UserLoginComponent,
-    UserPanelComponent,
-    RegisterComponent
+    UserPanelComponent
   ],
   imports: [
     BrowserModule,
