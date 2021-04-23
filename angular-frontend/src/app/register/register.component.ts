@@ -8,7 +8,11 @@ import { ValidateService } from '../validate.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name!: String;
+  fname!: String;
+  lname!: String;
+  dob!: Date;
+  pnumber!: String;
+  address!: String;
   username!: String;
   email!: String;
   password!: String;
@@ -20,7 +24,11 @@ export class RegisterComponent implements OnInit {
 
   onRegisterSubmit(){
     const user = {
-      name: this.name,
+      fname: this.fname,
+      lname: this.lname,
+      dob!: this.dob,
+      pnumber!: this.pnumber,
+      address!: this.address,
       email: this.email,
       username: this.username,
       password: this.password
