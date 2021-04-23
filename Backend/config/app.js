@@ -1,4 +1,3 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/meanstack',
-    secret: 'yoursecret'
-}
+    jwtSecret:"gn45w3ghp4893t"
+};

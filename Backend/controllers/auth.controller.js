@@ -39,7 +39,7 @@ exports.signup = async (req,res,next) =>{
         }
         let user = new User();
         user.email = req.body.email;
-        user.password = await user.encryptPassword(req.body.password);
+        user .password = await user.encryptPassword(req.body.password);
         user.fname = req.body.fname;
         user.lname = req.body.lname;
         user.dob = req.body.dob;
@@ -55,3 +55,4 @@ exports.signup = async (req,res,next) =>{
         next(err);
     }
 }
+

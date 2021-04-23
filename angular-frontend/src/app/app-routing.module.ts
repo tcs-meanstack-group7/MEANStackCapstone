@@ -11,7 +11,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import { MyAuthGaurd } from './myAuthguards';
-import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -22,7 +21,6 @@ const routes: Routes = [
   {path:"\auser-login",component:UserLoginComponent},
   {path:"\auser-panel",component:UserPanelComponent},
   {path:"\index",component:UserTypeComponent},
-  {path:"register",component:RegisterComponent},
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 
