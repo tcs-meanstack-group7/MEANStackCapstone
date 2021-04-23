@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { DoBootstrap, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,13 @@ export class ValidateService {
 
   constructor() { }
 
-  validateRegister(user: { name: any; email: any; username: any; password: any; }){
-    if(user.name == undefined || 
+  validateRegister(user: { fname: any; lname: any; dob: any;
+    pnumber: any; address: any; email: any; username: any; password: any; }){
+    if(user.fname == undefined ||
+      user.lname == undefined ||
+      user.dob == undefined ||
+      user.pnumber == undefined ||
+      user.address == undefined ||
       user.email == undefined ||
       user.username == undefined ||
       user.password == undefined){

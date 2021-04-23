@@ -9,6 +9,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { RegisterComponent } from './register/register.component';
 
 import { MyAuthGaurd } from './myAuthguards';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"\auser-login",component:UserLoginComponent},
   {path:"\auser-panel",component:UserPanelComponent},
   {path:"\index",component:UserTypeComponent},
+  {path:"\register",component:RegisterComponent},
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 
