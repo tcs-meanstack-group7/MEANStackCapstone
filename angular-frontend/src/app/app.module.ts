@@ -19,6 +19,9 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { RegisterComponent } from './register/register.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
