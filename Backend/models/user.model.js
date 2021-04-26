@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+    _id:{type:Number},
     email:{type:String,required:true},
     username:{type:String,required:true, select:false},
     password:{type:String,required:true, select:false},
@@ -13,7 +14,9 @@ const UserSchema = new Schema({
     pnumber:{type:Number,required:true},
     address:{type:String,required:true},
     cart:[{type:Schema.Types.ObjectId, ref: "product"}],
-    funds:{type:Number,required:true}
+    funds:{type:Number,required:true},
+    bankBalance:{type:Number,required:true},
+    bankAccountNumber:{type:Number,required:true}
 });
 
 UserSchema.methods.encryptPassword = async password => {

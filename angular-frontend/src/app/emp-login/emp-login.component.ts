@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../emp.login.service';
 
+
 @Component({
   selector: 'app-emp-login',
   templateUrl: './emp-login.component.html',
@@ -24,6 +25,7 @@ export class EmpLoginComponent implements OnInit {
       (error:any)=>{
         console.log(error);
         this.msg =error.error.message;
+
       })
     //sessionStorage.setItem("token","123");
     //this.router.navigate(["employee-panel"]);
