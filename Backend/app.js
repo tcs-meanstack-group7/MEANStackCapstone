@@ -10,6 +10,8 @@ const passportJWT = require('./middlewares/passportJWT')();
 const errorHandler = require('./middlewares/errorHandler');
 const authRoutes = require("./routers/auth");
 const empRoutes = require("./routers/emp");
+const userRoutes = require("./routers/user");
+
 
 
 //Database URL Details 
@@ -49,6 +51,7 @@ var Product = require("./routers/product.router.js");
 app.use("/product",Product)
 app.use('/api/auth', authRoutes);
 app.use('/api/emp', empRoutes);
+app.use('/api/user', userRoutes);
 app.use(errorHandler)
 
 //app.use("/order",Order)

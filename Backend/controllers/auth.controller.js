@@ -46,7 +46,9 @@ exports.signup = async (req,res,next) =>{
         user.pnumber = req.body.pnumber;
         user.address = req.body.address;
         user.cart = [];
-        user.funds = 500; //random default value
+        user.funds = 0; 
+        user.bankBalance = 10000;
+        user.bankAccountNumber = 12345;
         user = await user.save();
 
         const token = jwt.encode({id: user.id}, config.jwtSecret);
