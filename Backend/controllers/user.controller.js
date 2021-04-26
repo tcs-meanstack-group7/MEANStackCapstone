@@ -7,9 +7,9 @@ const validationHandler = require('../validations/validationHandler')
 
 exports.funds = async (req, res, next) => {
     try{
-        const uid = req.body.id;
+        const _id = req.body._id;
 
-        const user = await User.findOne({uid});
+        const user = await User.findById({_id});
         console.log(user)
         if (!user){
             const error = new Error("No User Found");
@@ -26,11 +26,11 @@ exports.funds = async (req, res, next) => {
 
 exports.addFunds = async (req, res, next) => {
     try{
-        const uid = req.body.id;
+        const _id = req.body._id;
         const amountToAdd = req.body.add;
         const accountNumber = req.body.accountNumber;
 
-        const user = await User.findOne({uid});
+        const user = await User.findById({_id});
         if (!user){
             const error = new Error("No User Found");
             error.statusCode = 401;
@@ -48,13 +48,9 @@ exports.addFunds = async (req, res, next) => {
         }
         const newFunds = user.funds+amountToAdd;
         const newBalance = user.bankBalance-amountToAdd;
-        userModel.updateOne({id:uid},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
-            if(!err){
-                if(result.nModified>0){
-                        res.send("Record updated succesfully")
-                }else {
-                        res.send("Record is not available");
-                }
+        userModel.findByIdAndUpdate({_id},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
+            if(!err){  
+                res.send("Record updated succesfully")
             }else {
                 res.send("Error generated "+err);
             }
@@ -67,16 +63,22 @@ exports.addFunds = async (req, res, next) => {
 
 exports.edit = async (req, res, next) => {
     try{
-        let uid = req.body.id;
-        user.address = req.body.address;
+        const _id = req.body._id;
+        const newAddress = req.body.address;
+        console.log(_id)
+        const user = await User.findById({_id});
+        if (!user){
+            const error = new Error("No User Found");
+            error.statusCode = 401;
+            throw error;
+        }
+        console.log(user)
 
-
-        User.findByIdAndUpdate({uid},{address:req.body.address},(err,result)=>{
-            if(err){
-                res.send(err)
-            }
-            else{
-                res.send(result)
+        userModel.findByIdAndUpdate({_id},{$set:{address:newAddress}},(err,result)=> {
+            if(!err){
+                res.send("Record updated succesfully")
+            }else {
+                res.send("Error generated "+err);
             }
         })
         
