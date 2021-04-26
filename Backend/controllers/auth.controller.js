@@ -6,10 +6,11 @@ const validationHandler = require('../validations/validationHandler')
 
 exports.login = async (req, res, next) => {
     try{
-        const email = req.body.email;
+        //const email = req.body.email;
+        const username = req.body.username;
         const password = req.body.password;
 
-        const user = await User.findOne({email}).select("+password");
+        const user = await User.findOne({username}).select("+password");
         if (!user){
             const error = new Error("Wrong Credentials");
             error.statusCode = 401;
@@ -31,15 +32,16 @@ exports.login = async (req, res, next) => {
 exports.signup = async (req,res,next) =>{
     try{
         validationHandler(req);
-        const existingUser = await User.findOne({email: req.body.email});
+        const existingUser = await User.findOne({username: req.body.username});
         if (existingUser){
-            const error = new Error("Email already used");
-            error.statusCode = 403;
+            const error = new Error("Username already used");
+            error.statusCode = 401;
             throw error;
         }
         let user = new User();
         user.email = req.body.email;
-        user .password = await user.encryptPassword(req.body.password);
+        user.username = req.body.username;
+        user.password = await user.encryptPassword(req.body.password);
         user.fname = req.body.fname;
         user.lname = req.body.lname;
         user.dob = req.body.dob;
@@ -48,6 +50,14 @@ exports.signup = async (req,res,next) =>{
         user.cart = [];
         user.funds = 500; //random default value
         user = await user.save();
+        /** user.save((err,doc) => {
+            if (!err) {
+                res.send(doc);
+            } else {
+                console.log(err);
+            }
+
+        }) **/
 
         const token = jwt.encode({id: user.id}, config.jwtSecret);
         return res.send({user, token});
@@ -56,3 +66,11 @@ exports.signup = async (req,res,next) =>{
     }
 }
 
+exports.me = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user);
+        return res.send(user);
+    } catch(err) {
+        next(err);
+    }
+}

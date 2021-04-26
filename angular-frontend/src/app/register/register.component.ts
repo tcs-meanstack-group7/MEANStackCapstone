@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ValidateService } from '../validate.service';
+import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,18 +19,21 @@ export class RegisterComponent implements OnInit {
   email!: String;
   password!: String;
 
-  constructor(public validateService: ValidateService, public router:Router) { }
+  showSuccessMessage!: boolean;
+
+  constructor(public validateService: ValidateService, 
+    public authService: AuthService, public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  onRegisterSubmit(){
+  onRegisterSubmit(form: NgForm){
     const user = {
       fname: this.fname,
       lname: this.lname,
-      dob!: this.dob,
-      pnumber!: this.pnumber,
-      address!: this.address,
+      dob: this.dob,
+      pnumber: this.pnumber,
+      address: this.address,
       email: this.email,
       username: this.username,
       password: this.password
@@ -41,10 +46,26 @@ export class RegisterComponent implements OnInit {
     if(!this.validateService.validateEmail(user.email)){
       console.log('Please fille email');
     } 
+
+   this.authService.registerUser(form.value).subscribe(
+      res => {
+        this.showSuccessMessage = true;
+      },
+      err => {}
+    )
+ /**
+    this.authService.registerUser(user).subscribe(data => {
+      if (data.success){
+        this.router.navigate(['/auser-login']);
+      } else {
+        console.log("Something went wrong");
+        this.router.navigate(['/register']);
+      }
+    })**/
   } 
 
   // routes user back to login page if user changes their mind
   goBackToLogin(){
-    this.router.navigate(["auser-login"]);
+    this.router.navigate(["/auser-login"]);
   }
 }

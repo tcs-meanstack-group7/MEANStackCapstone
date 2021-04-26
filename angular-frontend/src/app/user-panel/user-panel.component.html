@@ -1,1 +1,59 @@
-<p>user-panel works!</p>
+<p>Welcome User</p>
+
+<div>
+    <h2>Select Item & Quantity</h2>
+    <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <tr *ngFor="let pp of products">
+                    <td>{{pp._id}}</td>
+                    <td>{{pp.item}}</td>
+                    <td>{{pp.price}}</td>
+                    <td>{{pp.quantity}}</td>
+            </tr>
+    </table>
+</div>
+
+<div>
+    <h2>Delete Item by ID</h2>
+    Id :<input type="text" #idRef/><br/>
+    <input type="button" value="Delete By Id"
+    (click)="deleteById(idRef.value)"/><br/>
+    {{deleteMsg}}
+</div>
+
+<div>
+    <h2>Checkout</h2>
+    <input type="button" value="Checkout"
+    (click)="checkout()"/>
+    <input type="button" value="Reset"
+    (click)="reset()"/><br/>
+</div>
+
+<div>
+    <h2>Total Items Bought</h2>
+    <table border="1">
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr *ngFor="let pp of products">
+                <td>{{pp.item}}</td>
+                <td>{{pp.price}}</td>
+                <td>{{pp.quantity}}</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th>Total Price</th>
+        </tr>
+        <tr *ngFor="let pp of products">
+                <td>{{pp.price}}</td>
+        </tr>
+</table>
+</div>

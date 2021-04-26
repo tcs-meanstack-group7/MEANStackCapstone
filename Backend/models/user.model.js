@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     email:{type:String,required:true},
+    username:{type:String,required:true, select:false},
     password:{type:String,required:true, select:false},
     fname:{type:String,required:true},
     lname:{type:String,required:true},
@@ -25,5 +26,20 @@ UserSchema.methods.validPassword = async function(candidatePassword){
     const result = await bcrypt.compare(candidatePassword,this.password)
     return result;
 }
+
+// Custom validation for email
+UserSchema.path('email').validate((val) => {
+    emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(val);
+}, 'Invalid e-mail.');
+
+UserSchema.pre('save', function (next) {
+    bcrypt.genSalt(12, (err, salt) => {
+        bcrypt.hash(this.password, salt, (err, hash) => {
+            this.password = hash;
+            next();
+        });
+    });
+});
 
 module.exports = mongoose.model("user", UserSchema,"Users");
