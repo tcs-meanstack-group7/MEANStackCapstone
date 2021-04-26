@@ -6,12 +6,12 @@ import { User } from './user.model';
 @Injectable({
   providedIn: 'root'    // it is equal to provided in app.module.ts file 
 })
-export class LoginService {
+export class UserLoginService {
 
   constructor(public http:HttpClient) { }
 
   ValidateUser(body:any):Observable<Object> {
-    return this.http.post("http://localhost:9090/api/auth/login",body);
+    return this.http.post("http://localhost:9090/api/user/login",body);
   }
 }
 
