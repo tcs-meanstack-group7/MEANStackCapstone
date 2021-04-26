@@ -131,14 +131,6 @@ exports.signup = async (req,res,next) =>{
         user.bankBalance = 10000;
         user.bankAccountNumber = 12345;
         user = await user.save();
-        /*user.save((err,doc) => {
-            if (!err) {
-                res.send(doc);
-            } else {
-                console.log(err);
-            }
-
-        })*/ 
 
         const token = jwt.encode({id: user.id}, config.jwtSecret);
         return res.send({user, token});
