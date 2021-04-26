@@ -1,12 +1,12 @@
 <div>
     <h2>User Login Page</h2>
-    <form action="http://localhost:9090/api/auth/login" method="post">
+    <form #userRef="ngForm">
         <label>Username </label>
-        <input type="text" name="username" ngModel><br/>
+        <input type="text" name="email" ngModel><br/>
         <label>Password </label>
         <input type="text" name="password" ngModel><br/>
        <!--<input type="button" value="Log In" (click)="login()" class="btn btn-success"/> --> 
-        <input type="submit" value="Log In"/>
+        <input type="button" value="Log In" (click)="login(userRef.value)"/>
         <!-- Routes to register -->
         <input type="button" value="Register" (click)="register()" class="btn btn-success"/>   
     </form>

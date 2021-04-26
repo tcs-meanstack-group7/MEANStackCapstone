@@ -6,17 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-
+  display:String=""
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  updateCartItem(){
-
+  showSendRequest(){
+    this.display = "sendRequest"
   }
 
-  removeCartItem(){
-    
+  showEditProfile(){
+    this.display = "editProfile"
+  }
+  showFunds(){
+    this.display = "showFunds"
+  }
+
+  addFunds(){
+    this.display = "addFunds"
+  }
+
+  showLogout(){
+    this.display = "showLogout"
   }
 }

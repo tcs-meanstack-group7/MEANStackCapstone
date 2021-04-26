@@ -21,6 +21,11 @@ import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
+import { UserSendRequestComponent } from './user-send-request/user-send-request.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { UserViewFundsComponent } from './user-view-funds/user-view-funds.component';
+import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
+import { UserLogoutComponent } from './user-logout/user-logout.component';
 
 
 @NgModule({
@@ -41,7 +46,12 @@ import {AuthService} from './auth.service';
     AdminPanelComponent,
     UserLoginComponent,
     UserPanelComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserSendRequestComponent,
+    UserEditProfileComponent,
+    UserViewFundsComponent,
+    UserAddFundsComponent,
+    UserLogoutComponent
   ],
   imports: [
     BrowserModule,
