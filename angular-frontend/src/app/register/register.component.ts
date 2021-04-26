@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   dob!: Date;
   pnumber!: String;
   address!: String;
-  username!: String;
   email!: String;
   password!: String;
 
@@ -35,7 +34,6 @@ export class RegisterComponent implements OnInit {
       pnumber: this.pnumber,
       address: this.address,
       email: this.email,
-      username: this.username,
       password: this.password
     }
 

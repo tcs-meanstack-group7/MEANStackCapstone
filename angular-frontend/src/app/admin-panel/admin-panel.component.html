@@ -1,7 +1,7 @@
 <p>Please add items to the e-store</p>
 
 <div>
-    <form #shopRef="ngForm" (ngSubmit)="createItem(shopsRef.value)">
+    <form #shopsRef="ngForm" (ngSubmit)="createItem(shopsRef.value)">
         <label>ID </label>
         <input type="text" name="pid" ngModel><br/>
         <label>Item </label>
@@ -9,7 +9,7 @@
         <label>Price </label>
         <input type="text" name="price" ngModel><br/>
         <label>Quantity </label>
-        <input type="text" name="price" ngModel><br/>
+        <input type="text" name="quantity" ngModel><br/>
         <input type="submit" value="Submit"/>
         <input type="reset" value="Reset"/>
     </form>

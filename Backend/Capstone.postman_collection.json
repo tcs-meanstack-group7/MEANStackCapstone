@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"user1@gmail.com\",\n    \"password\":\"myPass\",\n    \"fname\":\"User\",\n    \"lname\":\"One\",\n    \"dob\":\"1990-01-01\",\n    \"pnumber\":\"1112223333\",\n    \"address\":\"123 Main St\"\n\n}",
+					"raw": "{\n    \"email\":\"user2@gmail.com\",\n    \"password\":\"myPass\",\n    \"fname\":\"User\",\n    \"lname\":\"Two\",\n    \"dob\":\"1990-01-01\",\n    \"pnumber\":\"1112223333\",\n    \"address\":\"123 Main St\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"user4@gmail.com\",\n    \"password\":\"myPass\"\n}",
+					"raw": "{\n    \"email\":\"user1@gmail.com\",\n    \"password\":\"myPass\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"emp2\",\n    \"password\":\"myPass\"\n\n}",
+					"raw": "{\n    \"empId\":\"emp2\",\n    \"password\":\"myPass\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,7 +99,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"emp2\",\n    \"password\":\"myPass\"\n\n}",
+					"raw": "{\n    \"empId\":\"emp2\",\n    \"password\":\"myPass\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -131,7 +131,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\": \"6086f4a211ce635a2f14c232\"\n\n}",
+					"raw": "{\n    \"_id\": \"6087049dfa5ab26194f53a7f\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -160,7 +160,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\": \"6086f4a211ce635a2f14c232\",\n    \"add\": \"100\",\n    \"accountNumber\": \"12345\"\n\n}",
+					"raw": "{\n    \"_id\": \"6087049dfa5ab26194f53a7f\",\n    \"add\": \"100\",\n    \"accountNumber\": \"12345\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -189,7 +189,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":\"6086f4a211ce635a2f14c232\",\n    \"address\":\"456 Main St\"\n}",
+					"raw": "{\n    \"_id\":\"6087049dfa5ab26194f53a7f\",\n    \"address\":\"125 Main St\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

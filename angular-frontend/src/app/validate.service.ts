@@ -8,14 +8,13 @@ export class ValidateService {
   constructor() { }
 
   validateRegister(user: { fname: any; lname: any; dob: any;
-    pnumber: any; address: any; email: any; username: any; password: any; }){
+    pnumber: any; address: any; email: any; password: any; }){
     if(user.fname == undefined ||
       user.lname == undefined ||
       user.dob == undefined ||
       user.pnumber == undefined ||
       user.address == undefined ||
       user.email == undefined ||
-      user.username == undefined ||
       user.password == undefined){
         return false;
       }

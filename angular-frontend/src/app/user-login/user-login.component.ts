@@ -31,10 +31,10 @@ export class UserLoginComponent implements OnInit {
     }
     sessionStorage.setItem("token","123");
     this.router.navigate(["auser-panel"]);**/
-    this.usrSer.ValidateEmployee({"username":userRef.username,"password":userRef.password}).subscribe((result:any)=>{
+    this.usrSer.ValidateUser({"username":userRef.username,"password":userRef.password}).subscribe((result:any)=>{
       console.log(result.token);
       sessionStorage.setItem("token",result.token);
-      this.router.navigate(["employee-panel"]);
+      this.router.navigate(["\auser-panel"]);
     },
       (error:any)=>{
         console.log(error);
