@@ -5,7 +5,7 @@ let router = express.Router();
 
 router.get("/", itemController.index);
 router.get("/:id", itemController.show);
-router.post("/"
+router.post("/",
     hasName,
     hasPrice,
     itemController.store

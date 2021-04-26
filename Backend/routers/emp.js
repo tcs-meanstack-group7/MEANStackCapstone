@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const authController = require("../controllers/emp.auth.controller");
+const authController = require("../controllers/emp.controller");
 const passportJWT = require('../middlewares/passportJWT')();
 const { isEmail, hasPassword } = require('../validations/validators')
 

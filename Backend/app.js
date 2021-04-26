@@ -8,7 +8,6 @@ const express = require('express');
 
 const passportJWT = require('./middlewares/passportJWT')();
 const errorHandler = require('./middlewares/errorHandler');
-const authRoutes = require("./routers/auth");
 const empRoutes = require("./routers/emp");
 const userRoutes = require("./routers/user");
 
@@ -49,7 +48,6 @@ var Product = require("./routers/product.router.js");
 // http://localhost:9090/product/updateProductPrice  update price using pid {"pid":103,"price":48000}
 
 app.use("/product",Product)
-app.use('/api/auth', authRoutes);
 app.use('/api/emp', empRoutes);
 app.use('/api/user', userRoutes);
 app.use(errorHandler)
