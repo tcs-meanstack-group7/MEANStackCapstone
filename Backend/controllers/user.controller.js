@@ -63,3 +63,25 @@ exports.addFunds = async (req, res, next) => {
         next(err);
     }
 }
+
+
+exports.edit = async (req, res, next) => {
+    try{
+        let uid = req.body.id;
+        user.address = req.body.address;
+
+
+        User.findByIdAndUpdate({uid},{address:req.body.address},(err,result)=>{
+            if(err){
+                res.send(err)
+            }
+            else{
+                res.send(result)
+            }
+        })
+        
+    }catch(err){
+        next(err);
+    }
+}
+
