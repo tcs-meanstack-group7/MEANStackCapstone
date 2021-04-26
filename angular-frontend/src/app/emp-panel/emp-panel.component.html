@@ -1,7 +1,24 @@
 <div>
-    <app-emp-send-request></app-emp-send-request>
-    <app-emp-update-order></app-emp-update-order>
-    <app-emp-unlock-user></app-emp-unlock-user>
-    <app-emp-edit-profile></app-emp-edit-profile>
-    <app-emp-logout></app-emp-logout>
+    <input type="button" value="Send Request" (click)="showSendRequest()" class="btn btn-primary"/>
+    <input type="button" value="Update Order" (click)="showUpdateOrder()" class="btn btn-primary"/>
+    <input type="button" value=" Unlock User" (click)="showUnlockUser()" class="btn btn-primary"/>
+    <input type="button" value="Edit Profile" (click)="showEditProfile()" class="btn btn-primary"/>
+    <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
+</div>
+<div class="container-fluid">
+    <div *ngIf="display=='sendRequest'">
+        <app-emp-send-request></app-emp-send-request>
+    </div>
+    <div *ngIf="display=='updateOrder'">
+        <app-emp-update-order></app-emp-update-order>
+    </div>
+    <div *ngIf="display=='unlockUser'">
+        <app-emp-unlock-user></app-emp-unlock-user>
+    </div>
+    <div *ngIf="display=='editProfile'">
+        <app-emp-edit-profile></app-emp-edit-profile>
+    </div>
+    <div *ngIf="display=='logout'">
+        <app-emp-logout></app-emp-logout>
+    </div>
 </div>
