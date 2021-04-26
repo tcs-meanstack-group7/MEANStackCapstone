@@ -6,10 +6,10 @@ const validationHandler = require('../validations/validationHandler')
 
 exports.login = async (req, res, next) => {
     try{
-        const id = req.body.id;
+        const empId = req.body.empId;
         const password = req.body.password;
-
-        const emp = await Emp.findOne({id}).select("+password");
+        const emp = await Emp.findOne({empId}).select("+password");
+        console.log(emp)
         if (!emp){
             const error = new Error("Wrong Credentials");
             error.statusCode = 401;
@@ -31,14 +31,14 @@ exports.login = async (req, res, next) => {
 exports.signup = async (req,res,next) =>{
     try{
         validationHandler(req);
-        const existingUser = await Emp.findOne({email: req.body._id});
+        const existingUser = await Emp.findOne({empId: req.body.empId});
         if (existingUser){
             const error = new Error("ID already used");
             error.statusCode = 403;
             throw error;
         }
         let emp = new Emp();
-        emp._id = req.body._id;
+        emp.empId = req.body.empId;
         emp.password = await emp.encryptPassword(req.body.password);
         emp = await emp.save();
 
