@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../user.login.service';
 //import {Register} from './register';
 
 @Component({
@@ -11,20 +12,36 @@ export class UserLoginComponent implements OnInit {
   username!: String;
   password!: String;
 
-  constructor(public router:Router) { }
+  constructor(public router:Router, public usrSer: LoginService) { }
 
+  msg:String="";
+
+  
   ngOnInit(): void {
   }
 
-  login(){
+  login(userRef:any){
     //Token must store when username and password must be correct 
     //session Id or JWT (Json web Token);
-    const user = {
+    console.log(userRef.username)
+    console.log(userRef.password)
+    /**const user = {
       username: this.username,
       password: this.password
     }
     sessionStorage.setItem("token","123");
-    this.router.navigate(["auser-panel"]);
+    this.router.navigate(["auser-panel"]);**/
+    this.usrSer.ValidateEmployee({"username":userRef.username,"password":userRef.password}).subscribe((result:any)=>{
+      console.log(result.token);
+      sessionStorage.setItem("token",result.token);
+      this.router.navigate(["employee-panel"]);
+    },
+      (error:any)=>{
+        console.log(error);
+        this.msg =error.error.message;
+      })
+    //sessionStorage.setItem("token","123");
+    //this.router.navigate(["employee-panel"]);
   }
 
   // routes user to register page

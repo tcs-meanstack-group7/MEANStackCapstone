@@ -12,4 +12,11 @@ export class UserPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  updateCartItem(){
+
+  }
+
+  removeCartItem(){
+    
+  }
 }
