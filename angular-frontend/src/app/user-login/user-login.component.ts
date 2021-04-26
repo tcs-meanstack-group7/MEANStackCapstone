@@ -23,7 +23,7 @@ export class UserLoginComponent implements OnInit {
   login(userRef:any){
     //Token must store when username and password must be correct 
     //session Id or JWT (Json web Token);
-    console.log(userRef.username)
+    console.log(userRef.email)
     console.log(userRef.password)
     /**const user = {
       username: this.username,
@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
     }
     sessionStorage.setItem("token","123");
     this.router.navigate(["auser-panel"]);**/
-    this.usrSer.ValidateEmployee({"username":userRef.username,"password":userRef.password}).subscribe((result:any)=>{
+    this.usrSer.ValidateEmployee({"email":userRef.email,"password":userRef.password}).subscribe((result:any)=>{
       console.log(result.token);
       sessionStorage.setItem("token",result.token);
       this.router.navigate(["employee-panel"]);

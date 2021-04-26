@@ -10,7 +10,7 @@ export class LoginService {
   constructor(public http:HttpClient) { }
 
   ValidateEmployee(body:any):Observable<Object> {
-    return this.http.post("http://localhost:9090/api/auth/login",body);
+    return this.http.post("http://localhost:9090/api/user/login",body);
   }
 }
 
