@@ -4,8 +4,8 @@
         <label>ID </label>
         <input type="text" name="_id" ngModel required><br/>
         <label>Password </label>
-        <input type="text" name="password" ngModel required><br/>
-        <input type="button" value="Log In"  (click)="login(empRef.value)" class="btn btn-success"/>
+        <input type="password" name="password" ngModel required><br/>
+        <input type="button" value="Log In"  (click)="login(empRef.value)" class="btn btn-primary"/>
     </form>
     {{msg}}
 </div>

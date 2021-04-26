@@ -17,9 +17,10 @@ export class EmpLoginComponent implements OnInit {
   login(userRef:any){
     console.log(userRef._id)
     console.log(userRef.password)
-    this.empSer.ValidateEmployee({"_id":userRef._id,"password":userRef.password}).subscribe((result:any)=>{
+    this.empSer.ValidateEmployee({"empId":userRef._id,"password":userRef.password}).subscribe((result:any)=>{
       console.log(result.token);
       sessionStorage.setItem("token",result.token);
+      sessionStorage.setItem("_id",result.emp._id);
       this.router.navigate(["employee-panel"]);
     },
       (error:any)=>{
