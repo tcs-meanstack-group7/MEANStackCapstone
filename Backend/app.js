@@ -11,6 +11,11 @@ const errorHandler = require('./middlewares/errorHandler');
 const empRoutes = require("./routers/emp");
 const userRoutes = require("./routers/user");
 
+var employeeController = require('./controllers/employeeController.js');
+var ProductController = require('./controllers/ProductController.js');
+var FundsController = require('./controllers/FundsController.js')
+var OrdersController = require('./controllers/OrderController.js')
+
 
 
 //Database URL Details 
@@ -51,6 +56,11 @@ app.use("/product",Product)
 app.use('/api/emp', empRoutes);
 app.use('/api/user', userRoutes);
 app.use(errorHandler)
+
+app.use('/RaiseTicket', employeeController);
+app.use('/Product', ProductController);
+app.use('/funds', FundsController);
+app.use('/orders', OrdersController);
 
 //app.use("/order",Order)
 //app.use("/customer",Customer)
