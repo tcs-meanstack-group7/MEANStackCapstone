@@ -1,15 +1,16 @@
 const jwt = require('jwt-simple');
 const config = require('../config/app');
 const userModel = require('../models/user.model');
+let mongoose = require("mongoose");
+
 
 const User = require('../models/user.model');
 const validationHandler = require('../validations/validationHandler')
 
 exports.funds = async (req, res, next) => {
     try{
-        const _id = req.body._id;
-
-        const user = await User.findById({_id});
+        const id = req.params.id;
+        const user = await User.findOne({_id:id});
         console.log(user)
         if (!user){
             const error = new Error("No User Found");
@@ -17,7 +18,6 @@ exports.funds = async (req, res, next) => {
             throw error;
         }
         let funds = user.funds;
-        console.log(user)
         res.send({funds});
     }catch(err){
         next(err);
@@ -26,11 +26,13 @@ exports.funds = async (req, res, next) => {
 
 exports.addFunds = async (req, res, next) => {
     try{
-        const _id = req.body._id;
-        const amountToAdd = req.body.add;
+        console.log(req.body)
+        console.log("hi")
+        const id = req.body.id;
+        const amountToAdd = parseInt(req.body.add);
         const accountNumber = req.body.accountNumber;
 
-        const user = await User.findById({_id});
+        const user = await User.findOne({_id:id});
         if (!user){
             const error = new Error("No User Found");
             error.statusCode = 401;
@@ -48,7 +50,7 @@ exports.addFunds = async (req, res, next) => {
         }
         const newFunds = user.funds+amountToAdd;
         const newBalance = user.bankBalance-amountToAdd;
-        userModel.findByIdAndUpdate({_id},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
+        userModel.findOneAndUpdate({_id:id},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
             if(!err){  
                 res.send("Record updated succesfully")
             }else {

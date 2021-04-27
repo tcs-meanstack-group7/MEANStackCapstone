@@ -8,7 +8,7 @@ const { isEmail, hasPassword } = require('../validations/validators')
 
 router.post("/login", userController.login);
 router.post("/signUp", [isEmail, hasPassword ], userController.signup);
-router.get("/funds",userController.funds);
+router.get("/funds/:id",userController.funds);
 router.put("/addFunds",userController.addFunds);
 router.put("/editUser",userController.edit);
 
