@@ -30,6 +30,7 @@ import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
+import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { AdminViewRequestComponent } from './admin-view-request/admin-view-reque
     AdminAddProdComponent,
     AdminDeleteProdComponent,
     AdminUpdateProdComponent,
-    AdminViewRequestComponent
+    AdminViewRequestComponent,
+    AdminLogoutComponent
   ],
   imports: [
     BrowserModule,

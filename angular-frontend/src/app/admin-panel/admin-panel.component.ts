@@ -15,6 +15,7 @@ export class AdminPanelComponent implements OnInit {
   empId!: String;
   password!: String;
   showSuccessMessage!: boolean;
+  display:string=""
 
   constructor(public validateService: ValidateService, 
     public authService: AuthService, public itemService:ItemService,public router:Router) { }
@@ -22,20 +23,20 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  home(){
-    this.router.navigate(["index"]);
+  addProd(){
+    this.display = "addProd"
   }
-  addProduct(){
-    this.router.navigate(["admin-add-prod"]);
+  deleteProd(){
+    this.display = "deleteProd"
   }
-  deleteProduct(){
-    this.router.navigate(["admin-delete-prod"]);
+  updateProd(){
+    this.display = "updateProd"
   }
-  updateProduct(){
-    this.router.navigate(["admin-update-prod"]);
+  viewRequest(){
+    this.display = "viewRequest"
   }
-  viewReq(){
-    this.router.navigate(["admin-view-request"]);
+  showLogout(){
+    this.display = "logout"
   }
 
 // admin must create item
