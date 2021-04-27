@@ -26,9 +26,10 @@ let getProductById = (req,res)=> {
 let storeProductDetails = (req,res)=> {
    
     let product = new ProductModel({
-        _id:req.body.pid,
+       // _id:req.body.pid,
         pname:req.body.pname,
-        price:req.body.price
+        price:req.body.price,
+        quant:req.body.quant
     });
 
     product.save((err,result)=> {

@@ -6,7 +6,8 @@ import { AdminProduct } from './model.admin';
   providedIn: 'root'
 })
 export class AdminService {
-  ipAddress:string="http://34.224.8.140:9090";
+  //ipAddress:string="http://34.224.8.140:9090";
+  ipAddress:string="http://localhost:9090";
   constructor(public http:HttpClient) { }
 //post method 1st parameter url and 2nd parameter json data. 
   storeProductDetailsInfo(productRef:any){
