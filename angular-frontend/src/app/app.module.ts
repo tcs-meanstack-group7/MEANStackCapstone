@@ -64,7 +64,7 @@ import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
     ShoppingComponent,
     ProductComponent,
     CartComponent,
-    RaiseTicketComponent
+    RaiseTicketComponent,
     AdminAddProdComponent,
     AdminDeleteProdComponent,
     AdminUpdateProdComponent,
