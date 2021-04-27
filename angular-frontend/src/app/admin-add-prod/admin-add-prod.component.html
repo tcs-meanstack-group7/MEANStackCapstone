@@ -1,0 +1,34 @@
+
+<div>
+    <form #productRef="ngForm" (ngSubmit)="addProd(productRef.value)">
+        <label>ProductName</label>
+        <input type="text" name="pname" ngModel><br/>
+        <label>Quantity</label>
+        <input type="text" name="quant" ngModel><br/>
+        <label>Price</label>
+        <input type="text" name="price" ngModel><br/>
+        <label>ID</label>
+        <input type="text" name="pid" ngModel><br/>
+        <input type="submit" value="Add"/>
+        <input type="reset" value="reset"/>
+    </form>
+    
+</div>
+<br/>
+<div>
+    <table border="1">
+            <tr>
+                <th>ProductName</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>ID</th>
+            </tr>
+            <tr *ngFor="let pp of products">
+                    <td>{{pp.pname}}</td>
+                    <td>{{pp.quant}}</td>
+                    <td>{{pp.price}}</td>
+                    <td>{{pp._id}}</td>
+                    
+            </tr>
+    </table>
+</div>
