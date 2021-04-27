@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple');
 const config = require('../config/app');
 
+let empData = require('../models/reports.model');
 const Emp = require('../models/employee.model');
 const validationHandler = require('../validations/validationHandler')
 
@@ -47,4 +48,39 @@ exports.signup = async (req,res,next) =>{
     } catch(err){
         next(err);
     }
+}
+exports.sendrequest = async(req, res) => {
+
+    let request = new empData({
+        productName: req.body.productName,
+        quantity: req.body.quantity
+    });
+
+
+
+    request.save((err, result) => {
+        if (!err) {
+            res.send("Record stored successfully " + result)
+        } else {
+            res.send("Record didn't store " + err);
+        }
+    })
+
+}
+
+exports.editProfile = async(req, res) => {
+    let empId = req.body.empId;
+    let updatedPass = await encryptPassword(req.body.password);
+
+    Emp.updateOne({ _id: empId }, { $set: { password: updatedPass } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Record updated succesfully")
+            } else {
+                res.send("Record is not available");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
 }
