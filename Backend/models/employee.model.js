@@ -9,14 +9,6 @@ var EmployeeSchema = new Schema({
 
 });
 
-var EmployeeData = new Schema({
-
-    productName: { type: String, required: false },
-    quantity: { type: Number, required: false },
-    UserName: { type: String, require: false },
-    ContactNumber: { type: Number, require: false },
-    Address: { type: Number, require: false }
-});
 
 EmployeeSchema.methods.encryptPassword = async password => {
     const salt = await bcrypt.genSalt(5);
@@ -30,16 +22,3 @@ EmployeeSchema.methods.validPassword = async function(candidatePassword) {
 }
 
 module.exports = mongoose.model("emp", EmployeeSchema, "Employees");
-module.exports = mongoose.model("empData", EmployeeData, "Employees")
-
-
-
-//module.exports = mongoose.model("empData", EmployeeData, "EmployeeRequest")
-
-//let EmployeeData = mongoose.Schema({
-// productName: { type: String, required: false },
-// quantity: { type: Number, required: false }
-//UserName: { type: String, require: false },
-//ContactNumber: { type: Number, require: false },
-//Address: { any: Schema.Types.Mixed, require: false }
-//})

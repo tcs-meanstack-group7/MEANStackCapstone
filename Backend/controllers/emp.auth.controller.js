@@ -1,7 +1,6 @@
 const jwt = require('jwt-simple');
 const config = require('../config/app');
-const employeeModel = require('../models/employee.model');
-
+let empData = require('../models/reports.model');
 const Emp = require('../models/employee.model');
 const validationHandler = require('../validations/validationHandler')
 
@@ -41,7 +40,7 @@ exports.signup = async(req, res, next) => {
         let emp = new Emp();
         emp.empId = req.body.empId;
         emp.password = await emp.encryptPassword(req.body.password);
-        //emp.password = req.body.password;
+        // emp.password = req.body.password;
         emp = await emp.save();
 
         const token = jwt.encode({ id: emp.id }, config.jwtSecret);
@@ -53,10 +52,12 @@ exports.signup = async(req, res, next) => {
 
 exports.sendrequest = async(req, res) => {
 
-    let request = new employeeModel({
+    let request = new empData({
         productName: req.body.productName,
         quantity: req.body.quantity
     });
+
+
 
     request.save((err, result) => {
         if (!err) {
@@ -68,38 +69,22 @@ exports.sendrequest = async(req, res) => {
 
 }
 
-/*
 exports.editProfile = async(req, res) => {
+    let empId = req.body.empId;
+    let updatedPass = await encryptPassword(req.body.password);
 
-    let profile = new employeeModel({
-        //    id: req.body.empId,
-        username: req.body.UserName,
-        contact: req.body.ContactNumber,
-        address: req.body.Address,
-    })
-
-    profile.find({}, (err, result) => {
-        if (!result) {
-            req.flash('error', 'No account found');
-            return res.redirect('/edit');
-        }
-        if (!username || !contact || !address) { // simplified: '' is a falsey
-            req.flash('error', 'One or more fields are empty');
-            return res.redirect('/edit'); // modified
-        }
-        result.username = username;
-        result.contact = contact;
-        result.address = address;
-
-        profile.save((err, result) => {
-            if (!err) {
-                res.send("profile updated successfully " + result)
+    Emp.updateOne({ _id: empId }, { $set: { password: updatedPass } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Record updated succesfully")
             } else {
-                res.send("profile didn't update " + err);
+                res.send("Record is not available");
             }
-        })
-
+        } else {
+            res.send("Error generated " + err);
+        }
     })
+
+
 
 }
-*/
