@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 import {Item} from '../model.item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -13,7 +14,7 @@ export class UserPanelComponent implements OnInit {
   updateMsg?:string;
   products?:Array<Item>
   display:String=""
-  constructor(public retrieveItem:ItemService) { }
+  constructor(public router:Router, public retrieveItem:ItemService) { }
 
   ngOnInit(): void {
     this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
@@ -35,7 +36,8 @@ export class UserPanelComponent implements OnInit {
   }
 
   showLogout(){
-    this.display = "showLogout"
+    this.display = "showLogout",    
+    this.router.navigate(["index"]);
   }
   updateCartItem(){
     console.log();
