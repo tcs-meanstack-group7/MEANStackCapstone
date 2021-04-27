@@ -36,7 +36,8 @@ export class AdminPanelComponent implements OnInit {
     this.display = "viewRequest"
   }
   showLogout(){
-    this.display = "logout"
+    this.display = "showLogout",    
+    this.router.navigate(["index"]);
   }
 
 // admin must create item

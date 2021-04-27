@@ -34,19 +34,27 @@
 </div>-->
 
 <div>
-    <h2>Total Items Bought</h2>
+    <h2>Catalog</h2>
+    <p>Choose item(s) to purchase</p>
+<div>
     <table border="1">
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Quantity</th>
-        </tr>
-        <tr *ngFor="let pp of products">
-                <td>{{pp.item}}</td>
-                <td>{{pp.price}}</td>
-                <td>{{pp.quantity}}</td>
-        </tr>
+            <tr>
+                <th>ProductName</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>ID</th>
+            </tr>
+            <tr *ngFor="let pp of products; let i = index">
+                    <td>{{pp.pname}}</td>
+                    <td>{{pp.quant}}</td>
+                    <td>{{pp.price}}</td>
+                    <td>{{i+1}}</td>
+            </tr>
     </table>
+</div>
+<br/>
+<!-- The price should be totaled based on what the user orders -->
+<div>
     <table border="1">
         <tr>
             <th>Total Price</th>
@@ -54,8 +62,10 @@
         <tr *ngFor="let pp of products">
                 <td>{{pp.price}}</td>
         </tr>
-</table>
+    </table>
 </div>
+</div>
+<br/><br/>
 
 <div>
     <input type="button" value="Order Status" (click)="showSendRequest()" class="btn btn-primary"/>
@@ -73,9 +83,11 @@
     </div>
     <div *ngIf="display=='showFunds'">
         <app-user-view-funds></app-user-view-funds>
+        <input type="button" value="Add Funds" (click)="addFunds()" class="btn btn-primary"/>
     </div>
     <div *ngIf="display=='addFunds'">
         <app-user-add-funds></app-user-add-funds>
+        <input type="button" value="View Funds" (click)="showFunds()" class="btn btn-primary"/>
     </div>
     <div *ngIf="display=='logout'">
         <app-user-logout></app-user-logout>
