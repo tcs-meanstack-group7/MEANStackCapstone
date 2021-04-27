@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../item.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public itemService:ItemService) { }
 
   ngOnInit(): void {
   }
 
+// admin must create item
+  createItem(shopsRef:any){
+    console.log(shopsRef);
+    this.itemService.createItem(shopsRef);
+  }
 }

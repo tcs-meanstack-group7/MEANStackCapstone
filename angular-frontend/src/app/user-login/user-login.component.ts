@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../user.login.service';
+import { UserLoginService } from '../user.login.service';
 //import {Register} from './register';
 
 @Component({
@@ -9,10 +9,10 @@ import { LoginService } from '../user.login.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  username!: String;
+  email!: String;
   password!: String;
 
-  constructor(public router:Router, public usrSer: LoginService) { }
+  constructor(public router:Router, public usrSer: UserLoginService) { }
 
   msg:String="";
 
@@ -31,6 +31,7 @@ export class UserLoginComponent implements OnInit {
     }
     sessionStorage.setItem("token","123");
     this.router.navigate(["auser-panel"]);**/
+
     this.usrSer.ValidateEmployee({"email":userRef.email,"password":userRef.password}).subscribe((result:any)=>{
       console.log(result.token);
       sessionStorage.setItem("token",result.token);

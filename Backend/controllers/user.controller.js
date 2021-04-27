@@ -9,6 +9,7 @@ const validationHandler = require('../validations/validationHandler')
 
 exports.funds = async (req, res, next) => {
     try{
+
         const id = req.params.id;
         const user = await User.findOne({_id:id});
         console.log(user)
@@ -26,8 +27,7 @@ exports.funds = async (req, res, next) => {
 
 exports.addFunds = async (req, res, next) => {
     try{
-        console.log(req.body)
-        console.log("hi")
+
         const id = req.body.id;
         const amountToAdd = parseInt(req.body.add);
         const accountNumber = req.body.accountNumber;
@@ -50,6 +50,7 @@ exports.addFunds = async (req, res, next) => {
         }
         const newFunds = user.funds+amountToAdd;
         const newBalance = user.bankBalance-amountToAdd;
+
         userModel.findOneAndUpdate({_id:id},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
             if(!err){  
                 res.send("Record updated succesfully")
