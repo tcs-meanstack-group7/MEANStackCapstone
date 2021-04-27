@@ -19,13 +19,17 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
 import { UserSendRequestComponent } from './user-send-request/user-send-request.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 import { UserViewFundsComponent } from './user-view-funds/user-view-funds.component';
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
+import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
+import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
+import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
+import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
 
 
 @NgModule({
@@ -51,13 +55,18 @@ import { UserLogoutComponent } from './user-logout/user-logout.component';
     UserEditProfileComponent,
     UserViewFundsComponent,
     UserAddFundsComponent,
-    UserLogoutComponent
+    UserLogoutComponent,
+    AdminAddProdComponent,
+    AdminDeleteProdComponent,
+    AdminUpdateProdComponent,
+    AdminViewRequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
