@@ -31,4 +31,8 @@ export class EmpLoginComponent implements OnInit {
     //sessionStorage.setItem("token","123");
     //this.router.navigate(["employee-panel"]);
   }
+
+  goBackToIndex(){
+    this.router.navigate(["/index"]);
+  }
 }
