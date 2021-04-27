@@ -12,7 +12,7 @@ export class AdminAddProdComponent implements OnInit {
   products?:Array<AdminProduct>;
  
 
-  constructor(public proService:AdminService) { }
+  constructor(public router:Router, public proService:AdminService) { }
  
   ngOnInit(): void {
     this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
