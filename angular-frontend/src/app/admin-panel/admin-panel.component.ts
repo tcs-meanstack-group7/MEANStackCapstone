@@ -3,6 +3,8 @@ import { ItemService } from '../item.service';
 import { ValidateService } from '../validate.service';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
@@ -15,9 +17,25 @@ export class AdminPanelComponent implements OnInit {
   showSuccessMessage!: boolean;
 
   constructor(public validateService: ValidateService, 
-    public authService: AuthService, public itemService:ItemService) { }
+    public authService: AuthService, public itemService:ItemService,public router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  home(){
+    this.router.navigate(["index"]);
+  }
+  addProduct(){
+    this.router.navigate(["admin-add-prod"]);
+  }
+  deleteProduct(){
+    this.router.navigate(["admin-delete-prod"]);
+  }
+  updateProduct(){
+    this.router.navigate(["admin-update-prod"]);
+  }
+  viewReq(){
+    this.router.navigate(["admin-view-request"]);
   }
 
 // admin must create item
