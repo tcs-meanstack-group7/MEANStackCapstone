@@ -1,1 +1,11 @@
-<p>user-add-funds works!</p>
+<div>
+    <h2>Add Funds Page</h2>
+    <form #addRef="ngForm">
+        <label>Amount to Add </label>
+        <input type="number" name="add" ngModel required><br/>
+        <label>Bank Account Number</label>
+        <input type="text" name="accountNumber" ngModel required><br/>
+        <input type="button" value="Add To Account"  (click)="addFunds(addRef.value)" class="btn btn-primary"/>
+    </form>
+    {{msg}}
+</div>

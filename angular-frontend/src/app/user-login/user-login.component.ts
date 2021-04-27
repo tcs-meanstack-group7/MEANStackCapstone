@@ -34,7 +34,8 @@ export class UserLoginComponent implements OnInit {
     this.usrSer.ValidateEmployee({"email":userRef.email,"password":userRef.password}).subscribe((result:any)=>{
       console.log(result.token);
       sessionStorage.setItem("token",result.token);
-      this.router.navigate(["employee-panel"]);
+      sessionStorage.setItem("id",result.user._id)
+      this.router.navigate(["auser-panel"]);
     },
       (error:any)=>{
         console.log(error);
