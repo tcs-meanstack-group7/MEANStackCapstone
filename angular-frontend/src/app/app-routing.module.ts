@@ -12,6 +12,9 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { RegisterComponent } from './register/register.component';
 
 import { MyAuthGaurd } from './myAuthguards';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+import { ProductComponent } from './Shopping/Product/product.component';
+import { CartComponent } from './Shopping/cart/cart.component';
 
 
 const routes: Routes = [
@@ -23,6 +26,9 @@ const routes: Routes = [
   {path:"\auser-panel",component:UserPanelComponent},
   {path:"\index",component:UserTypeComponent},
   {path:"\register",component:RegisterComponent},
+  { path: "\RaiseTicket", component: RaiseTicketComponent },
+  { path: "\products", component: ProductComponent },
+  { path: "\cart", component: CartComponent },
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 

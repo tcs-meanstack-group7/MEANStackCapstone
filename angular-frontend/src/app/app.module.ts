@@ -26,6 +26,10 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { UserViewFundsComponent } from './user-view-funds/user-view-funds.component';
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+import { CartComponent } from './Shopping/cart/cart.component';
+import { ProductComponent } from './Shopping/Product/product.component';
+import { ShoppingComponent } from './Shopping/shopping.component';
 
 
 @NgModule({
@@ -51,7 +55,11 @@ import { UserLogoutComponent } from './user-logout/user-logout.component';
     UserEditProfileComponent,
     UserViewFundsComponent,
     UserAddFundsComponent,
-    UserLogoutComponent
+    UserLogoutComponent,
+    ShoppingComponent,
+    ProductComponent,
+    CartComponent,
+    RaiseTicketComponent
   ],
   imports: [
     BrowserModule,
