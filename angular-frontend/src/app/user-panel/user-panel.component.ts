@@ -9,23 +9,35 @@ import {Item} from '../model.item';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  
+
   updateMsg?:string;
   products?:Array<Item>
+  display:String=""
   constructor(public retrieveItem:ItemService) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
   }
 
-  // retrieve cart item values admin posts
-
-  updateCartItem(){
-    console.log();
-
+  showSendRequest(){
+    this.display = "sendRequest"
   }
 
-  removeCartItem(){
-    
+  showEditProfile(){
+    this.display = "editProfile"
+  }
+  showFunds(){
+    this.display = "showFunds"
+  }
+
+  addFunds(){
+    this.display = "addFunds"
+  }
+
+  showLogout(){
+    this.display = "showLogout"
+  }
+  updateCartItem(){
+    console.log();
   }
 }

@@ -1,6 +1,6 @@
 <p>Welcome User</p>
 
-<div>
+<!--div>
     <h2>Select Item & Quantity</h2>
     <table border="1">
             <tr>
@@ -56,4 +56,29 @@
                 <td>{{pp.price}}</td>
         </tr>
 </table>
+</div-->
+
+<div>
+    <input type="button" value="Order Status" (click)="showSendRequest()" class="btn btn-primary"/>
+    <input type="button" value="Edit Profile" (click)="showEditProfile()" class="btn btn-primary"/>
+    <input type="button" value="View Funds" (click)="showFunds()" class="btn btn-primary"/>
+    <input type="button" value="Add Funds" (click)="addFunds()" class="btn btn-primary"/>
+    <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
+</div>
+<div class="container-fluid">
+    <div *ngIf="display=='sendRequest'">
+        <app-user-send-request></app-user-send-request>
+    </div>
+    <div *ngIf="display=='editProfile'">
+        <app-user-edit-profile></app-user-edit-profile>
+    </div>
+    <div *ngIf="display=='showFunds'">
+        <app-user-view-funds></app-user-view-funds>
+    </div>
+    <div *ngIf="display=='addFunds'">
+        <app-user-add-funds></app-user-add-funds>
+    </div>
+    <div *ngIf="display=='logout'">
+        <app-user-logout></app-user-logout>
+    </div>
 </div>

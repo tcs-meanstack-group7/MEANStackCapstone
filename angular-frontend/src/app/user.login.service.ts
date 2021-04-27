@@ -11,7 +11,9 @@ export class UserLoginService {
   constructor(public http:HttpClient) { }
 
   ValidateUser(body:any):Observable<Object> {
+
     return this.http.post("http://localhost:9090/api/user/login",body);
   }
+
 }
 
