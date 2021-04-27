@@ -19,7 +19,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
 import { UserSendRequestComponent } from './user-send-request/user-send-request.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
@@ -30,6 +30,11 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { CartComponent } from './Shopping/cart/cart.component';
 import { ProductComponent } from './Shopping/Product/product.component';
 import { ShoppingComponent } from './Shopping/shopping.component';
+import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
+import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
+import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
+import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
+import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 
 
 @NgModule({
@@ -60,12 +65,18 @@ import { ShoppingComponent } from './Shopping/shopping.component';
     ProductComponent,
     CartComponent,
     RaiseTicketComponent
+    AdminAddProdComponent,
+    AdminDeleteProdComponent,
+    AdminUpdateProdComponent,
+    AdminViewRequestComponent,
+    AdminLogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

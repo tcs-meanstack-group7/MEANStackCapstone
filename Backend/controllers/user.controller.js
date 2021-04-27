@@ -66,18 +66,26 @@ exports.addFunds = async (req, res, next) => {
 
 exports.edit = async (req, res, next) => {
     try{
-        const _id = req.body._id;
-        const newAddress = req.body.address;
-        console.log(_id)
-        const user = await User.findById({_id});
+        let usr = new User();
+        const id = req.body.id;
+        let newEmail = req.body.email;
+        let newPassword = await usr.encryptPassword(req.body.password);
+        let newFName = req.body.fname;
+        let newLName = req.body.lname;
+        let newDob = req.body.dob;
+        let newPNumber = req.body.pnumber;
+        let newAddress = req.body.address;
+
+        const user = await User.findOne({_id:id});
         if (!user){
             const error = new Error("No User Found");
             error.statusCode = 401;
             throw error;
         }
         console.log(user)
-
-        userModel.findByIdAndUpdate({_id},{$set:{address:newAddress}},(err,result)=> {
+        let newValues = {email:newEmail,password:newPassword,fname:newFName,lname:newLName,dob:newDob,pnumber:newPNumber,address:newAddress}
+        console.log(newValues)
+        userModel.findOneAndUpdate({_id:id},{$set:newValues},(err,result)=> {
             if(!err){
                 res.send("Record updated succesfully")
             }else {

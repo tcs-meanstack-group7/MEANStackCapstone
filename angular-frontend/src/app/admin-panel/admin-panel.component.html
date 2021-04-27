@@ -1,5 +1,31 @@
-<p>Please add items to the e-store</p>
 
+<!--nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Welcome Admin! </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <button class="btn btn-outline-primary" type="button" (click)="home()">Back to Home Page</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" (click)="addProduct()">Add Product</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" (click)="deleteProduct()">Delete Product</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" (click)="updateProduct()">Update Product</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" (click)="viewReq()">View Requests</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<p>Please add items to the e-store</p>
 <div>
     <form #shopsRef="ngForm" (ngSubmit)="createItem(shopsRef.value)">
         <label>ID </label>
@@ -13,4 +39,45 @@
         <input type="submit" value="Submit"/>
         <input type="reset" value="Reset"/>
     </form>
+</div>
+<br/><br/>
+
+<p>Add Employee to the Employee Database</p>
+<div>
+    <form #empRegisterSubmit="ngForm" action="http://localhost:9090/api/emp/signup" method="post">
+        <label>Employee ID </label>
+        <input type="text" name="empId" ngModel><br/>
+        <label>Employee Password </label>
+        <input type="text" name="password" ngModel><br/>
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+    </form>
+    <div class="success" *ngIf="showSuccessMessage">
+        Register Success!!!
+    </div>
+</div-->
+
+<div>
+    <input type="button" value="Add Product" (click)="addProd()" class="btn btn-primary"/>
+    <input type="button" value="Delete Product" (click)="deleteProd()" class="btn btn-primary"/>
+    <input type="button" value=" Update Product" (click)="updateProd()" class="btn btn-primary"/>
+    <input type="button" value="View Request" (click)="viewRequest()" class="btn btn-primary"/>
+    <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
+</div>
+<div class="container-fluid">
+    <div *ngIf="display=='addProd'">
+        <app-admin-add-prod></app-admin-add-prod>>
+    </div>
+    <div *ngIf="display=='deleteProd'">
+        <app-admin-delete-prod></app-admin-delete-prod>
+    </div>
+    <div *ngIf="display=='updateProd'">
+        <app-admin-update-prod></app-admin-update-prod>>
+    </div>
+    <div *ngIf="display=='viewRequest'">
+        <app-admin-view-request></app-admin-view-request>>
+    </div>
+    <div *ngIf="display=='logout'">
+        <app-admin-logout></app-admin-logout>
+    </div>
 </div>

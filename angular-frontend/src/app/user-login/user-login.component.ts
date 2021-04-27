@@ -50,4 +50,8 @@ export class UserLoginComponent implements OnInit {
   register(){
     this.router.navigate(["\register"]);
   }
+
+  goBackToIndex(){
+    this.router.navigate(["/index"]);
+  }
 }
