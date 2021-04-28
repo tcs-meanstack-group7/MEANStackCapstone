@@ -28,8 +28,8 @@ import { UserViewFundsComponent } from './user-view-funds/user-view-funds.compon
 import { UserAddFundsComponent } from './user-add-funds/user-add-funds.component';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
-import { CartComponent } from './Shopping/cart/cart.component';
-import { ProductComponent } from './Shopping/Product/product.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductComponent } from './Product/product.component';
 import { ShoppingComponent } from './Shopping/shopping.component';
 import { OrderComponent } from './order/order.component';
 import { ProductService } from './product.service';

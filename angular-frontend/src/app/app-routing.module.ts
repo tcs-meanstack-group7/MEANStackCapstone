@@ -18,8 +18,8 @@ import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
 
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
-import { ProductComponent } from './Shopping/Product/product.component';
-import { CartComponent } from './Shopping/cart/cart.component';
+import { ProductComponent } from './Product/product.component';
+import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
 
 
@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: "\RaiseTicket", component: RaiseTicketComponent },
   { path: "\products", component: ProductComponent },
   { path: "\cart", component: CartComponent },
-  { path: 'order', component: OrderComponent },
+  { path: '\order', component: OrderComponent },
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 
