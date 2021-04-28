@@ -32,13 +32,13 @@ export class ProductService {
   }
 
 
-  find(id: string): Product {
-    return this.products[this.getSelectedIndex(id)];
+  find(_id: string): Product {
+    return this.products[this.getSelectedIndex(_id)];
   }
 
-  private getSelectedIndex(id: string) {
+  private getSelectedIndex(_id: string) {
     for (var i = 0; i < this.products.length; i++) {
-      if (this.products[i].id == id) {
+      if (this.products[i]._id == _id) {
         return i;
       }
     }

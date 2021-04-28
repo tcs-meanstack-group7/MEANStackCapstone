@@ -33,10 +33,10 @@ export class CartComponent implements OnInit {
   // Products added by user are fetched from local storage
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      var id = params['id'];
-      if (id) {
+      var _id = params['_id'];
+      if (_id) {
         var item: Item = {
-          product: this.productService.find(id),
+          product: this.productService.find(_id),
           quantity: 1
         };
         if (localStorage.getItem('cart') == null) {
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
           let index: number = -1;
           for (var i = 0; i < cart.length; i++) {
             let item: Item = JSON.parse(cart[i]);
-            if (item.product.id == id) {
+            if (item.product._id == _id) {
               index = i;
               break;
             }
@@ -86,12 +86,12 @@ export class CartComponent implements OnInit {
   }
 
   //For removing item from cart
-  remove(id: string): void {
+  remove(_id: string): void {
     let cart: any = JSON.parse(localStorage.getItem('cart')||'{}');
     let index: number = -1;
     for (var i = 0; i < cart.length; i++) {
       let item: Item = JSON.parse(cart[i]);
-      if (item.product.id == id) {
+      if (item.product._id == _id) {
         cart.splice(i, 1);
         break;
       }
