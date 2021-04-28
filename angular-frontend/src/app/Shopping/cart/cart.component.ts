@@ -103,9 +103,10 @@ export class CartComponent implements OnInit {
   // Fetching value from funds and checking out appropriately if funds are sufficient
   checkout() {
 
-    //USER ID IS HARCODED FOR NOW BECAUSE WE DIDNOT LOGIN. SO FETCH THE USER ID AND REPLACE THE LOGIN ITEM 
-    // var userid = localstorage.getItem("key")
-    this.fundService.GetUserFund("6087f765844d7c52e8298817").subscribe((res :Funds) => {
+    //USER ID IS FETCHED FROM SESSION STORAGE WHICH IS STORED DURING THE LOGIN 
+     var userid = sessionStorage.getItem("id")
+
+    this.fundService.GetUserFund("userid").subscribe((res :Funds) => {
       debugger;
       console.log(res);
       this.funds = res;
