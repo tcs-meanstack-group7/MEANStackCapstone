@@ -54,4 +54,8 @@ export class UserLoginComponent implements OnInit {
   goBackToIndex(){
     this.router.navigate(["/index"]);
   }
+
+  raiseTicket(){
+    this.router.navigate(["/RaiseTicket"]);
+  }
 }
