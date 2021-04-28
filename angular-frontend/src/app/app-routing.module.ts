@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { MyAuthGaurd } from './myAuthguards';
 import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
+import { AdminDeleteEmployeeComponent } from './admin-delete-employee/admin-delete-employee.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:"\index",component:UserTypeComponent},
   {path:"\admin-add-prod", component:AdminAddProdComponent},
   {path:"\admin-delete-prod", component:AdminDeleteProdComponent},
+  {path:"\admin-delete-emp", component:AdminDeleteEmployeeComponent},
   {path:"\admin-update-prod", component:AdminUpdateProdComponent},
   {path:"\admin-view-request", component:AdminViewRequestComponent},
   {path:"\register",component:RegisterComponent},

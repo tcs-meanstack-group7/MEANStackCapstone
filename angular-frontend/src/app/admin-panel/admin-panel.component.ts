@@ -34,6 +34,9 @@ export class AdminPanelComponent implements OnInit {
   deleteProduct(){
     this.router.navigate(["admin-delete-prod"]);
   }
+  deleteEmp(){
+    this.router.navigate(["admin-delete-emp"]);
+  }
   updateProduct(){
     this.router.navigate(["admin-update-prod"]);
   }

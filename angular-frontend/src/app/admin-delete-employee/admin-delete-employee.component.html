@@ -1,1 +1,7 @@
-<p>admin-delete-employee works!</p>
+<div>
+    <h2>Delete Employee by EmpId</h2>
+    Id :<input type="text" #id/><br/>
+    <input type="button" value="Delete"
+    (click)="deleteEmp(id.value)"/><br/>
+    {{deleteMsg}}
+</div>
