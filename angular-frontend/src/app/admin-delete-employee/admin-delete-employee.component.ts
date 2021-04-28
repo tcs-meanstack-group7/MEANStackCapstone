@@ -15,7 +15,12 @@ export class AdminDeleteEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteEmp(emp:any){
+  deleteEmp(empId:any){
+  /**  console.log("EmpID is "+empId);
+
+    this.proService.deleteEmpById(empId).subscribe((result:string)=> {
+        this.deleteMsg=result;
+    })**/ 
 
   }
 
