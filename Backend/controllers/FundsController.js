@@ -37,17 +37,31 @@ router.post('/', (req, res) => {
     });
 });
 router.put('/:id', (req, res) => {
-    if (!ObjectId.isValid(req.params.id))
+    if (!ObjectId.isValid(req.params.id.split("_")[0]))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
-
-    var Funds = {
+    console.log("put" + req.params.id.split("_")[0]);
+console.log("all req " + req.params.id.split("_")[1]);
+    var funds = {
         id: req.body.id,
         name: req.body.name,
         Funds: req.body.Funds
     };
-    Funds.findByIdAndUpdate(req.params.id, { $set: Funds }, { new: true }, (err, doc) => {
-        if (!err) { res.send(doc); }
-        else { console.log('Error in Employee Update :' + JSON.stringify(err, undefined, 2)); }
-    });
+  
+    Funds.updateOne({ _id: req.params.id.split("_")[0] }, { $set: { funds: req.params.id.split("_")[1] } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                console.log("Record sucessfully updated");
+                res.send("Record updated succesfully")
+
+            } else {
+                console.log("Record not updated");
+
+                res.send("Record is not available");
+            }
+        } else {
+            console.log("Error generated " + err);
+            res.send("Error generated " + err);
+        }
+    })
 });
 module.exports = router;

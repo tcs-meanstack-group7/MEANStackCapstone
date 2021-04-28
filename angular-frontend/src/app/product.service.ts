@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductService {
 
   public products: Product[] = [] ;
-  readonly baseURL = 'http://localhost:9090/Product';
+  readonly baseURL = 'http://localhost:9090/product/allProductDetails';
 
   constructor(private http: HttpClient) {
     
