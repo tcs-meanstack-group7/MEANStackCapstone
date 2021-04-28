@@ -9,9 +9,8 @@ import { AdminProduct } from '../model.admin'
   styleUrls: ['./admin-delete-employee.component.css']
 })
 export class AdminDeleteEmployeeComponent implements OnInit {
-  deleteMsg?:string;
-  productForm: any;
-  constructor(public formBuilder: FormBuilder,public proService:AdminService) { }
+  deleteMsg=""
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -22,5 +21,7 @@ export class AdminDeleteEmployeeComponent implements OnInit {
     this.proService.deleteEmpById(empId).subscribe((result:string)=> {
         this.deleteMsg=result;
     })**/ 
+
   }
+
 }

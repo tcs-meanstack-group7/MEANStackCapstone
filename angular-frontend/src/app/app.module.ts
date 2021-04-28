@@ -56,6 +56,7 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
 import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employee.component';
 import { AdminDeleteEmployeeComponent } from './admin-delete-employee/admin-delete-employee.component';
 import { AdminGenerateReportsComponent } from './admin-generate-reports/admin-generate-reports.component';
+import { EmpViewTicketsComponent } from './emp-view-tickets/emp-view-tickets.component';
 import { UserOrderStatusComponent } from './user-order-status/user-order-status.component';
 
 
@@ -103,6 +104,7 @@ import { UserOrderStatusComponent } from './user-order-status/user-order-status.
     AdminAddEmployeeComponent,
     AdminDeleteEmployeeComponent,
     AdminGenerateReportsComponent,
+    EmpViewTicketsComponent,
     UserOrderStatusComponent
   ],
   imports: [
