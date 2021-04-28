@@ -9,4 +9,4 @@ var EmployeeData = new Schema({
 });
 
 
-module.exports = mongoose.model("empData", EmployeeData, "Employees") 
+module.exports = mongoose.model("empData", EmployeeData, "EmployeeRequest")
