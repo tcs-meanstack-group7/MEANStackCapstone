@@ -29,7 +29,7 @@ export class AdminService {
 
 // delete employee
   deleteEmpById(empId:any):any{
-    return this.http.delete(this.ipAddress+"/product/api/emp/deleteEmpById/"+empId,{responseType:'text'});
+    return this.http.delete(this.ipAddress+"/api/emp/deleteEmpById/"+empId,{responseType:'text'});
   }
 
   updateProductPrice(productRef:any):any{
