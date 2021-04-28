@@ -15,6 +15,7 @@ import { MyAuthGaurd } from './myAuthguards';
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { ProductComponent } from './Shopping/Product/product.component';
 import { CartComponent } from './Shopping/cart/cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: "\RaiseTicket", component: RaiseTicketComponent },
   { path: "\products", component: ProductComponent },
   { path: "\cart", component: CartComponent },
+  { path: 'order', component: OrderComponent },
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 

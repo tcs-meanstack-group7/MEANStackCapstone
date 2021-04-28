@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { map } from 'rxjs/operators';
+
 
 import { Injectable } from '@angular/core';
 
@@ -10,27 +10,27 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ProductService {
 
-  private products: Product[] = [] ;
-  readonly baseURL = 'http://localhost:3000/Product';
+  public products: Product[] = [] ;
+  readonly baseURL = 'http://localhost:9090/Product';
 
   constructor(private http: HttpClient) {
     
-    this.http.get<Product>(this.baseURL).subscribe(res => {
-      console.log(res);
-     
-      // if(res!=null){
-      // this.products.push(res[0]);
-      // this.products.push(res[1]);
-      // this.products.push(res[2]);
-      // };
 
+    this.http.get<Product[]>(this.baseURL).subscribe((res : Product[]) => {
+      console.log(res);
+      this.products = res;
+      console.log(this.products);
     });
+
   }
   
 
-  findAll(): Product[] {
-    return this.products;
+  findAll():Observable<Product[]>{
+
+    var res= this.http.get<Product[]>(this.baseURL);
+    return res;
   }
+
 
   find(id: string): Product {
     return this.products[this.getSelectedIndex(id)];

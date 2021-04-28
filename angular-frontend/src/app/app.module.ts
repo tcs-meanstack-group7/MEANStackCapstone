@@ -30,6 +30,10 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { CartComponent } from './Shopping/cart/cart.component';
 import { ProductComponent } from './Shopping/Product/product.component';
 import { ShoppingComponent } from './Shopping/shopping.component';
+import { OrderComponent } from './order/order.component';
+import { ProductService } from './product.service';
+import { FundsService } from './funds.service';
+import { OrderService } from './Order.service';
 
 
 @NgModule({
@@ -59,7 +63,8 @@ import { ShoppingComponent } from './Shopping/shopping.component';
     ShoppingComponent,
     ProductComponent,
     CartComponent,
-    RaiseTicketComponent
+    RaiseTicketComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,7 @@ import { ShoppingComponent } from './Shopping/shopping.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,ProductService, FundsService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

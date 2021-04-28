@@ -4,7 +4,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Funds } = require('../models/Funds');
 
-// => localhost:3000/Funds/
+// => localhost:9090/Funds/
 router.get('/', (req, res) => {
     console.log("funds");
     Funds.find((err, docs) => {

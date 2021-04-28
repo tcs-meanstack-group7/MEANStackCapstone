@@ -16,8 +16,14 @@ export class ProductComponent implements OnInit {
     private productService: ProductService
   ) { }
 
+  //Fetching products from product table
   ngOnInit() {
-    this.products = this.productService.findAll();
+    debugger;
+    this.productService.findAll().subscribe((res: Product[]) => {
+      this.products = res;
+      console.log(res);
+      console.log(this.products);
+    });
   }
 
 
