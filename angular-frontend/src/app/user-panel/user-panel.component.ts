@@ -23,6 +23,14 @@ export class UserPanelComponent implements OnInit {
     //this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
   }
 
+  showProducts(){
+    this.display = "products"
+  }
+
+  showCart(){
+    this.display = "cart"
+  }
+
   showOrderStatus(){
     this.display = "orderStatus"
   }
