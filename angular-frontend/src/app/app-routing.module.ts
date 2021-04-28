@@ -11,6 +11,10 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import { MyAuthGaurd } from './myAuthguards';
+import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
+import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
+import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
+import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
 
 
 const routes: Routes = [
@@ -21,6 +25,10 @@ const routes: Routes = [
   {path:"\auser-login",component:UserLoginComponent},
   {path:"\auser-panel",component:UserPanelComponent},
   {path:"\index",component:UserTypeComponent},
+  {path:"\admin-add-prod", component:AdminAddProdComponent},
+  {path:"\admin-delete-prod", component:AdminDeleteProdComponent},
+  {path:"\admin-update-prod", component:AdminUpdateProdComponent},
+  {path:"\admin-view-request", component:AdminViewRequestComponent},
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 

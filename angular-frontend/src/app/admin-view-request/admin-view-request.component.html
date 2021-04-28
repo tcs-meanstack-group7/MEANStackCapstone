@@ -1,0 +1,14 @@
+<div>
+    <table border="1">
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+            <tbody *ngFor="let pp of products; let i = index">
+
+                <td>{{pp.pname}}</td>
+                <td>{{pp.quantity}}</td>
+            
+            </tbody>
+    </table>
+</div>
