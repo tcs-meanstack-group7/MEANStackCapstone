@@ -44,6 +44,10 @@ export class RaiseTicketComponent implements OnInit {
     
   }
 
+  toLogin(){
+    this.router.navigate(["auser-login"]);
+  }
+
 
 
 
