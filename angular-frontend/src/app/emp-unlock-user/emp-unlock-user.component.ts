@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../emp.login.service';
 
 @Component({
   selector: 'app-emp-unlock-user',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpUnlockUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(public unlockService:LoginService) { }
 
   ngOnInit(): void {
   }
+  unlock(unlockRef:any){
+    console.log(unlockRef);
+    this.unlockService.unlockUser(unlockRef);
+    this.reset();
+  }
+  reset(){ }
 
 }
