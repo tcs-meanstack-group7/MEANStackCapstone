@@ -14,7 +14,10 @@ const UserSchema = new Schema({
     cart:[{type:Schema.Types.ObjectId, ref: "product"}],
     funds:{type:Number,required:true},
     bankBalance:{type:Number,required:true},
-    bankAccountNumber:{type:Number,required:true}
+    bankAccountNumber:{type:Number,required:true},
+    isLocked:{type:Boolean,required:true},
+    consecutiveFailed:{type:Number,required:true}
+
 });
 
 UserSchema.methods.encryptPassword = async password => {
