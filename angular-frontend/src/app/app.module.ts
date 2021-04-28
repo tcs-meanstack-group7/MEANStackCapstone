@@ -35,6 +35,16 @@ import { OrderComponent } from './order/order.component';
 import { ProductService } from './product.service';
 import { FundsService } from './funds.service';
 import { OrderService } from './Order.service';
+import { RouterModule, Routes } from '@angular/router';
+import { GetFundsService } from './Getfunds.service';
+const routes: Routes = [
+  { path: 'RaiseTicket', component: EmployeeComponent },
+  { path: 'Shopping', component: ShoppingComponent },
+
+  { path: 'products', component: ProductComponent },
+  { path: 'cart', component: CartComponent },
+  { path: '**', redirectTo: '' }
+];
 import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
@@ -100,9 +110,10 @@ import { UserOrderStatusComponent } from './user-order-status/user-order-status.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    RouterModule.forRoot(routes),
     ReactiveFormsModule
   ],
-  providers: [AuthService,ProductService, FundsService, OrderService],
+  providers: [AuthService,ProductService, FundsService, OrderService, GetFundsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
