@@ -46,7 +46,7 @@ let storeProductDetails = (req,res)=> {
 }
 
 let deleteProductById= (req,res)=> {
-    let pid = req.body._id;
+    let pid = req.params.pid;
     ProductModel.deleteOne({_id:pid},(err,result)=> {
         if(!err){
                 if(result.deletedCount>0){
@@ -62,7 +62,7 @@ let deleteProductById= (req,res)=> {
 }
 
 let updateProductPrice= (req,res)=> {
-    let pid = req.body._id;
+    let pid = req.body.pid;
     let updatedQty = req.body.quantity;
     let updatedPrice = req.body.price;
     ProductModel.updateMany({_id:pid},{$set:{quantity:updatedQty,price:updatedPrice}},(err,result)=> {
