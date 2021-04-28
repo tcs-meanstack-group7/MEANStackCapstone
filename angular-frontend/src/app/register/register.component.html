@@ -1,6 +1,6 @@
 <div>
     <h2>User Registration Page</h2>
-    <form #onRegisterSubmit="ngForm" action="http://localhost:9090/api/user/signup" method="post">
+    <form #regRef="ngForm">
         <label>First Name </label>
         <input type="text" name="fname" ngModel><br/>
         <label>Last Name </label>
@@ -15,9 +15,8 @@
         <input type="text" name="email" ngModel><br/>
         <label>Password </label>
         <input type="text" name="password" ngModel><br/>
-        <input type="submit" value="Register"/>
-       <!--<input type="button" value="Register" (click)="onRegisterSubmit()" class="btn btn-success"/> --> 
-        <input type="button" value="Go Back" (click)="goBackToLogin()" class="btn btn-success"/>  
+        <input type="button" value="Register" (click)="register(regRef.value)" class="btn btn-success"/>
+        <input type="button" value="Go Back" (click)="goBackToLogin()" class="btn btn-success"/> 
     </form>
 
     <div class="success" *ngIf="showSuccessMessage">

@@ -30,7 +30,7 @@
 <div>
     <input type="button" value="Add Product" (click)="addProd()" class="btn btn-primary"/>
     <input type="button" value="Delete Product" (click)="deleteProd()" class="btn btn-primary"/>
-    <input type="button" value=" Update Product" (click)="updateProd()" class="btn btn-primary"/>
+    <input type="button" value="Update Product" (click)="updateProd()" class="btn btn-primary"/>
     <input type="button" value="View Request" (click)="viewRequest()" class="btn btn-primary"/>
     <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
 </div>
@@ -50,4 +50,16 @@
     <div *ngIf="display=='logout'">
         <app-admin-logout></app-admin-logout>
     </div>
+</div>
+<br/>
+
+<div>
+    <h2>Employee Registration</h2>
+    <form #empRef="ngForm">
+        <label>Employee ID</label>
+        <input type="text" name="empId" ngModel><br/>
+        <label>Employee Password</label>
+        <input type="text" name="password" ngModel><br/>
+        <input type="button" value="Register" (click)="register(empRef.value)" class="btn btn-success"/>
+    </form>
 </div>
