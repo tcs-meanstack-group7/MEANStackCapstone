@@ -1,7 +1,10 @@
 //import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../item.service';
-import {Item} from '../model.item';
+//import { ItemService } from '../item.service';
+//import {Item} from '../model.item';
+import { AdminProduct } from '../model.admin';
+import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -9,14 +12,15 @@ import {Item} from '../model.item';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-
+  products?:Array<AdminProduct>;
   updateMsg?:string;
-  products?:Array<Item>
+  //products?:Array<Item>
   display:String=""
-  constructor(public retrieveItem:ItemService) { }
+  constructor(public router:Router, public proService:AdminService) { }
 
   ngOnInit(): void {
-    this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
+    this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
+    //this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
   }
 
   showSendRequest(){
@@ -35,8 +39,10 @@ export class UserPanelComponent implements OnInit {
   }
 
   showLogout(){
-    this.display = "showLogout"
+    this.display = "showLogout",    
+    this.router.navigate(["index"]);
   }
+  
   updateCartItem(){
     console.log();
   }

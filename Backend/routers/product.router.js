@@ -1,7 +1,7 @@
 let express = require("express");
 let router = express.Router();  //router reference. 
 let ProductController = require("../controllers/product.controller.js");
-let { isEmail, hasUsername, hasPassword } = require("../validations/validators")
+let { isEmail, hasPassword } = require("../validations/validators")
 
 
 //mapping sub path with http methods. 

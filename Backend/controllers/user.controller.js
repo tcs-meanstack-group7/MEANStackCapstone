@@ -66,18 +66,26 @@ exports.addFunds = async (req, res, next) => {
 
 exports.edit = async (req, res, next) => {
     try{
-        const _id = req.body._id;
-        const newAddress = req.body.address;
-        console.log(_id)
-        const user = await User.findById({_id});
+        let usr = new User();
+        const id = req.body.id;
+        let newEmail = req.body.email;
+        let newPassword = await usr.encryptPassword(req.body.password);
+        let newFName = req.body.fname;
+        let newLName = req.body.lname;
+        let newDob = req.body.dob;
+        let newPNumber = req.body.pnumber;
+        let newAddress = req.body.address;
+
+        const user = await User.findOne({_id:id});
         if (!user){
             const error = new Error("No User Found");
             error.statusCode = 401;
             throw error;
         }
         console.log(user)
-
-        userModel.findByIdAndUpdate({_id},{$set:{address:newAddress}},(err,result)=> {
+        let newValues = {email:newEmail,password:newPassword,fname:newFName,lname:newLName,dob:newDob,pnumber:newPNumber,address:newAddress}
+        console.log(newValues)
+        userModel.findOneAndUpdate({_id:id},{$set:newValues},(err,result)=> {
             if(!err){
                 res.send("Record updated succesfully")
             }else {
@@ -95,25 +103,52 @@ exports.login = async (req, res, next) => {
         const email = req.body.email;
         const password = req.body.password;
         console.log(email)
-
         const user = await User.findOne({email}).select("+password");
         if (!user){
             const error = new Error("Wrong Credentials");
             error.statusCode = 401;
             throw error;
         }
+        if (user.isLocked){
+            const error = new Error("Too Many Unsuccessful Logins Please Raise Ticket");
+            error.statusCode = 401;
+            throw error;
+        }
         const validPassword = await user.validPassword(password);
         if (!validPassword) {
+            console.log(user.consecutiveFailed)
+            unsuccessful = parseInt(user.consecutiveFailed) + 1;
+            if (unsuccessful >= 3 ){
+                locked = true;
+            }
+            else {
+                locked = false;
+            }
+            
+            console.log(unsuccessful)
+            console.log(locked)
+            userModel.findOneAndUpdate({email:user.email},{$set:{consecutiveFailed:unsuccessful,isLocked:locked}},(err,result)=> {
+                if(!err){
+                }else {
+                }
+            })
             const error = new Error("Wrong Credentials");
             error.statusCode = 401;
             throw error;
         }
+        userModel.findOneAndUpdate({email:user.email},{$set:{consecutiveFailed:0}},(err,result)=> {
+            if(!err){
+            }else {
+            }
+        })
         const token = jwt.encode({id:user.id}, config.jwtSecret);
         return res.send({user, token});
     }catch(err){
         next(err);
     }
 }
+
+
 
 exports.signup = async (req,res,next) =>{
     try{
@@ -136,6 +171,8 @@ exports.signup = async (req,res,next) =>{
         user.funds = 0; 
         user.bankBalance = 10000;
         user.bankAccountNumber = 12345;
+        user.isLocked = false;
+        user.consecutiveFailed = 0;
         user = await user.save();
 
         const token = jwt.encode({id: user.id}, config.jwtSecret);

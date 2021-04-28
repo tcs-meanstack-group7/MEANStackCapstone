@@ -4,10 +4,6 @@ exports.isEmail = body('email')
     .isEmail()
     .withMessage("Email field must contain valid email");
 
-exports.hasUsername = body('username')
-    .exists()
-    .withMessage("Username cannot be empty");
-
 exports.hasPassword = body('password')
     .exists()
     .withMessage("Password cannot be empty");
