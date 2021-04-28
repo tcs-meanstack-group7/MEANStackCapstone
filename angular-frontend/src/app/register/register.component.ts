@@ -10,14 +10,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  fname!: String;
-  lname!: String;
-  dob!: Date;
-  pnumber!: String;
-  address!: String;
-  email!: String;
-  password!: String;
-
   showSuccessMessage!: boolean;
 
   constructor(public validateService: ValidateService, 
@@ -25,45 +17,22 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  register(userRef:any){
+    let body = {"email": userRef.email,"password": userRef.password,"fname": userRef.fname,"lname": userRef.lname,"dob": userRef.dob,"pnumber": userRef.pnumber,"address": userRef.address}
+    this.authService.registerUser(body).subscribe((result:any)=>{
+      console.log(result)
+      this.router.navigate(["auser-panel"]);
+    },
+      (error:any)=>{
+        console.log(error);
 
-  onRegisterSubmit(form: NgForm){
-    const user = {
-      fname: this.fname,
-      lname: this.lname,
-      dob: this.dob,
-      pnumber: this.pnumber,
-      address: this.address,
-      email: this.email,
-      password: this.password
-    }
-
-    if(!this.validateService.validateRegister(user)){
-      console.log('Please fill all fields');
-    }
-    
-    if(!this.validateService.validateEmail(user.email)){
-      console.log('Please fille email');
-    } 
-
-   this.authService.registerUser(form.value).subscribe(
-      res => {
-        this.showSuccessMessage = true;
-      },
-      err => {}
-    )
- /**
-    this.authService.registerUser(user).subscribe(data => {
-      if (data.success){
-        this.router.navigate(['/auser-login']);
-      } else {
-        console.log("Something went wrong");
-        this.router.navigate(['/register']);
-      }
-    })**/
-  } 
-
-  // routes user back to login page if user changes their mind
+      })
+    //sessionStorage.setItem("token","123");
+    //this.router.navigate(["employee-panel"]);
+  }
   goBackToLogin(){
     this.router.navigate(["/auser-login"]);
   }
 }
+
+

@@ -1,16 +1,39 @@
-<p>Please add items to the e-store</p>
-
 <div>
-    <form #shopsRef="ngForm" (ngSubmit)="createItem(shopsRef.value)">
-        <label>ID </label>
-        <input type="text" name="pid" ngModel><br/>
-        <label>Item </label>
-        <input type="text" name="pname" ngModel><br/>
-        <label>Price </label>
-        <input type="text" name="price" ngModel><br/>
-        <label>Quantity </label>
-        <input type="text" name="quantity" ngModel><br/>
-        <input type="submit" value="Submit"/>
-        <input type="reset" value="Reset"/>
-    </form>
+    <input type="button" value="Add Product" (click)="addProd()" class="btn btn-primary"/>
+    <input type="button" value="Delete Product" (click)="deleteProd()" class="btn btn-primary"/>
+    <input type="button" value="Update Product" (click)="updateProd()" class="btn btn-primary"/>
+    <input type="button" value="View Request" (click)="viewRequest()" class="btn btn-primary"/>
+    <input type="button" value="Add Employee" (click)="addEmployee()" class="btn btn-primary"/>
+    <input type="button" value="Delete Employee" (click)="deleteEmployee()" class="btn btn-primary"/>
+    <input type="button" value="Generate Report" (click)="generateReports()" class="btn btn-primary"/>
+    <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
 </div>
+<div class="container-fluid">
+    <div *ngIf="display=='addProd'">
+        <app-admin-add-prod></app-admin-add-prod>
+    </div>
+    <div *ngIf="display=='deleteProd'">
+        <app-admin-delete-prod></app-admin-delete-prod>
+    </div>
+    <div *ngIf="display=='updateProd'">
+        <app-admin-update-prod></app-admin-update-prod>
+    </div>
+    <div *ngIf="display=='viewRequest'">
+        <app-admin-view-request></app-admin-view-request>
+    </div>
+    <div *ngIf="display=='addEmployee'">
+        <app-admin-add-employee></app-admin-add-employee>
+    </div>
+    <div *ngIf="display=='deleteEmployee'">
+        <app-admin-delete-employee></app-admin-delete-employee>
+    </div>
+    <div *ngIf="display=='generateReports'">
+        <app-admin-generate-reports></app-admin-generate-reports>
+    </div>
+    <div *ngIf="display=='logout'">
+        <app-admin-logout></app-admin-logout>
+    </div>
+</div>
+<br/>
+
+

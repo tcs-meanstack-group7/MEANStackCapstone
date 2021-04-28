@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Funds } from '../../Funds';
-import { Item } from '../../item';
-import { ProductService } from '../../product.service';
-import { GetFundsService } from '../../Getfunds.service';
-import { OrderService } from '../../Order.service';
-import { Order } from '../../Order.model';
+import { Funds } from '../Funds';
+import { Item } from '../item';
+import { ProductService } from '../product.service';
+import { GetFundsService } from '../Getfunds.service';
+import { OrderService } from '../Order.service';
+import { Order } from '../Order.model';
 
 
 
@@ -120,7 +120,7 @@ export class CartComponent implements OnInit {
         this.fundService.Updatefunds(this.funds).subscribe((res: any) => {
           console.log(res);
         });
-        this.order.Amount = this.total;
+        this.order.amount = this.total;
         this.order._id = this.funds._id;
         this.order.emailid = this.funds.emailid;
         this.order.status = "Order Place sucessful";

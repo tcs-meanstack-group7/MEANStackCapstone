@@ -3,7 +3,9 @@ const config = require('../config/app');
 
 let empData = require('../models/reports.model');
 const Emp = require('../models/employee.model');
-const validationHandler = require('../validations/validationHandler')
+const validationHandler = require('../validations/validationHandler');
+const userModel = require('../models/user.model');
+
 
 exports.login = async(req, res, next) => {
     try {
@@ -69,10 +71,28 @@ exports.sendrequest = async(req, res) => {
 }
 
 exports.editProfile = async(req, res) => {
-    let empId = req.body.empId;
-    let updatedPass = await encryptPassword(req.body.password);
+    let emp = new userModel();
+    let email = req.body.email;
+    let updatedPass = await emp.encryptPassword(req.body.password);
 
-    Emp.updateOne({ _id: empId }, { $set: { password: updatedPass } }, (err, result) => {
+    userModel.updateOne({ email: email }, { $set: { password: updatedPass } }, (err, result) => {
+        if (!err) {
+            if (result.nModified > 0) {
+                res.send("Record updated succesfully")
+            } else {
+                res.send("Record is not available");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    })
+}
+
+exports.unlock = async(req, res) => {
+    let user = new userModel();
+    let newPassword = await user.encryptPassword("NewPassword")
+
+    userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked:false, consecutiveFailed:0 } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
                 res.send("Record updated succesfully")

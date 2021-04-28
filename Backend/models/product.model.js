@@ -1,10 +1,13 @@
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise; 
 
-let ProductSchema = mongoose.Schema({
-    _id:Number,
+let ProductSchema = new mongoose.Schema({
+  //_id:Number,
     pname:String,
-    price:Number
+    price:Number,
+    quantity:Number
+    
+
 })
 
 let ProductModel = mongoose.model("product",ProductSchema,"Products");

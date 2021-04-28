@@ -1,1 +1,21 @@
-<p>user-edit-profile works!</p>
+<div>
+    <h2>Edit User Page</h2>
+    <form #userRef="ngForm">
+        <label>Email</label>
+        <input type="text" name="email" ngModel required><br/>
+        <label>Password</label>
+        <input type="password" name="password" ngModel required><br/>
+        <label>First Name</label>
+        <input type="text" name="fname" ngModel required><br/>
+        <label>Last Name</label>
+        <input type="text" name="lname" ngModel required><br/>
+        <label>Date of Birth</label>
+        <input type="date" name="dob" ngModel required><br/>
+        <label>Phone Number</label>
+        <input type="text" name="pnumber" ngModel required><br/>
+        <label>Address</label>
+        <input type="text" name="address" ngModel required><br/>
+        <input type="button" value="Update User"  (click)="updateUser(userRef.value)" class="btn btn-primary"/>
+    </form>
+    {{msg}}
+</div>
