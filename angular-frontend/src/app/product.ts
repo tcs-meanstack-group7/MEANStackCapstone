@@ -1,7 +1,7 @@
 export class Product {
 
-  id: string="";
-  name: string="";
+  _id: string="";
+  pname: string="";
   price: number=0;
  
 
