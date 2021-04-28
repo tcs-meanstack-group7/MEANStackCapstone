@@ -39,6 +39,7 @@ export class AdminPanelComponent implements OnInit {
   }
   viewReq(){
     this.router.navigate(["admin-view-request"]);
+  }
   addProd(){
     this.display = "addProd"
   }

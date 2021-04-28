@@ -20,7 +20,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 
 import { RegisterComponent } from './register/register.component';
-import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './auth.service';
 import { UserSendRequestComponent } from './user-send-request/user-send-request.component';
