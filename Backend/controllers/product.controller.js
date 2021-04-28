@@ -58,7 +58,6 @@ let deleteProductById= (req,res)=> {
             res.send("Error generated "+err);
         }
     })
-
 }
 
 let updateProductPrice= (req,res)=> {
