@@ -1,0 +1,10 @@
+<div>
+    <h2>Add Employee</h2>
+    <form #empRef="ngForm">
+        <label>Employee ID</label>
+        <input type="text" name="empId" ngModel><br/>
+        <label>Employee Password</label>
+        <input type="text" name="password" ngModel><br/>
+        <input type="button" value="Register" (click)="register(empRef.value)" class="btn btn-success"/>
+    </form>
+</div>

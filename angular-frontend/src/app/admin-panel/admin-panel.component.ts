@@ -52,6 +52,15 @@ export class AdminPanelComponent implements OnInit {
   viewRequest(){
     this.display = "viewRequest"
   }
+  addEmployee(){
+    this.display = "addEmployee"
+  }
+  deleteEmployee(){
+    this.display = "deleteEmployee"
+  }
+  generateReports(){
+    this.display = "generateReports"
+  }
   showLogout(){
     this.display = "showLogout",    
     this.router.navigate(["index"]);

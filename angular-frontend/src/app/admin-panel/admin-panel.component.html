@@ -1,51 +1,34 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-    <div class="container-fluid">
-        <a class="navbar-brand">Welcome Admin! </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <button class="btn btn-outline-primary" type="button" (click)="home()">Back to Home Page</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" type="button" (click)="addProduct()">Add Product</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" type="button" (click)="deleteProduct()">Delete Product</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" type="button" (click)="updateProduct()">Update Product</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary" type="button" (click)="viewReq()">View Requests</button>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-</nav>
-
-
 <div>
     <input type="button" value="Add Product" (click)="addProd()" class="btn btn-primary"/>
     <input type="button" value="Delete Product" (click)="deleteProd()" class="btn btn-primary"/>
     <input type="button" value="Update Product" (click)="updateProd()" class="btn btn-primary"/>
     <input type="button" value="View Request" (click)="viewRequest()" class="btn btn-primary"/>
+    <input type="button" value="Add Employee" (click)="addEmployee()" class="btn btn-primary"/>
+    <input type="button" value="Delete Employee" (click)="deleteEmployee()" class="btn btn-primary"/>
+    <input type="button" value="Generate Report" (click)="generateReports()" class="btn btn-primary"/>
     <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
 </div>
 <div class="container-fluid">
     <div *ngIf="display=='addProd'">
-        <app-admin-add-prod></app-admin-add-prod>>
+        <app-admin-add-prod></app-admin-add-prod>
     </div>
     <div *ngIf="display=='deleteProd'">
         <app-admin-delete-prod></app-admin-delete-prod>
     </div>
     <div *ngIf="display=='updateProd'">
-        <app-admin-update-prod></app-admin-update-prod>>
+        <app-admin-update-prod></app-admin-update-prod>
     </div>
     <div *ngIf="display=='viewRequest'">
-        <app-admin-view-request></app-admin-view-request>>
+        <app-admin-view-request></app-admin-view-request>
+    </div>
+    <div *ngIf="display=='addEmployee'">
+        <app-admin-add-employee></app-admin-add-employee>
+    </div>
+    <div *ngIf="display=='deleteEmployee'">
+        <app-admin-delete-employee></app-admin-delete-employee>
+    </div>
+    <div *ngIf="display=='generateReports'">
+        <app-admin-generate-reports></app-admin-generate-reports>
     </div>
     <div *ngIf="display=='logout'">
         <app-admin-logout></app-admin-logout>
@@ -53,13 +36,4 @@
 </div>
 <br/>
 
-<div>
-    <h2>Employee Registration</h2>
-    <form #empRef="ngForm">
-        <label>Employee ID</label>
-        <input type="text" name="empId" ngModel><br/>
-        <label>Employee Password</label>
-        <input type="text" name="password" ngModel><br/>
-        <input type="button" value="Register" (click)="register(empRef.value)" class="btn btn-success"/>
-    </form>
-</div>
+
