@@ -9,10 +9,14 @@ import { AdminProduct } from '../model.admin'
   styleUrls: ['./admin-delete-employee.component.css']
 })
 export class AdminDeleteEmployeeComponent implements OnInit {
-
+  deleteMsg=""
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteEmp(emp:any){
+
   }
 
 }
