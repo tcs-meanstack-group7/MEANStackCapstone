@@ -10,13 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  fname!: String;
-  lname!: String;
-  dob!: Date;
-  pnumber!: String;
-  address!: String;
-  email!: String;
-  password!: String;
+
 
   showSuccessMessage!: boolean;
 
@@ -25,27 +19,27 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  register(userRef:any){
+    let body = {"email": userRef.email,"password": userRef.password,"fname": userRef.fname,"lname": userRef.lname,"dob": userRef.dob,"pnumber": userRef.pnumber,"address": userRef.address}
+    this.authService.registerUser(body).subscribe((result:any)=>{
+      console.log(result)
+    },
+      (error:any)=>{
+        console.log(error);
 
-  onRegisterSubmit(form: NgForm){
-    const user = {
-      fname: this.fname,
-      lname: this.lname,
-      dob: this.dob,
-      pnumber: this.pnumber,
-      address: this.address,
-      email: this.email,
-      password: this.password
-    }
+      })
+    //sessionStorage.setItem("token","123");
+    //this.router.navigate(["employee-panel"]);
+  }
 
-    if(!this.validateService.validateRegister(user)){
-      console.log('Please fill all fields');
-    }
+  /*onRegisterSubmit(form: any){
+    const user = {"fname": form.fname,"lname": form.lname,"dob": form.dob,"pnumber": form.pnumber,"address": form.address,"email": form.email,"password": form.password}
+
+
     
-    if(!this.validateService.validateEmail(user.email)){
-      console.log('Please fille email');
-    } 
 
-   this.authService.registerUser(form.value).subscribe(
+
+   this.authService.registerUser(user).subscribe(
       res => {
         this.showSuccessMessage = true;
       },
@@ -60,10 +54,10 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/register']);
       }
     })**/
-  } 
+  
 
   // routes user back to login page if user changes their mind
-  goBackToLogin(){
+  /*goBackToLogin(){
     this.router.navigate(["/auser-login"]);
-  }
+  }*/
 }
