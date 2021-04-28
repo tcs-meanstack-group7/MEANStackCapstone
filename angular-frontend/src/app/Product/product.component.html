@@ -13,12 +13,12 @@
     <th>Add to cart</th>
   </tr>
   <tr *ngFor="let product of products">
-    <td>{{product.id}}</td>
-    <td>{{product.name}}</td>
+    <td>{{product._id}}</td>
+    <td>{{product.pname}}</td>
     <td>{{product.price}}</td>
 
     <td>
-      <a [routerLink]="['/cart', { id:product.id }]">Add to cart</a>
+      <a [routerLink]="['/cart', { id:product._id }]">Add to cart</a>
     </td>
   </tr>
 </table>

@@ -27,6 +27,12 @@ export class AdminService {
     return this.http.delete(this.ipAddress+"/product/deleteProductById/"+id,{responseType:'text'});
   }
 
+// delete employee
+  deleteEmpById(empId:any):any{
+    return this.http.delete(this.ipAddress+"/api/emp/deleteEmpById/"+empId,{responseType:'text'});
+  }
+
+
   updateProductPrice(productRef:any):any{
     return this.http.put(this.ipAddress+"/product/updateProductPrice",productRef,{responseType:'text'})
   }

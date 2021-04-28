@@ -68,15 +68,23 @@
 <br/><br/-->
 
 <div>
-    <input type="button" value="Order Status" (click)="showSendRequest()" class="btn btn-primary"/>
+    <input type="button" value="Products" (click)="showProducts()" class="btn btn-primary"/>
+    <input type="button" value="Cart" (click)="showCart()" class="btn btn-primary"/>
+    <input type="button" value="Order Status" (click)="showOrderStatus()" class="btn btn-primary"/>
     <input type="button" value="Edit Profile" (click)="showEditProfile()" class="btn btn-primary"/>
     <input type="button" value="View Funds" (click)="showFunds()" class="btn btn-primary"/>
     <input type="button" value="Add Funds" (click)="addFunds()" class="btn btn-primary"/>
     <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
 </div>
 <div class="container-fluid">
-    <div *ngIf="display=='sendRequest'">
-        <app-user-send-request></app-user-send-request>
+    <div *ngIf="display=='products'">
+        <app-product></app-product>
+    </div>
+    <div *ngIf="display=='cart'">
+        <app-cart></app-cart>
+    </div>
+    <div *ngIf="display=='orderStatus'">
+        <app-user-order-status></app-user-order-status>
     </div>
     <div *ngIf="display=='editProfile'">
         <app-user-edit-profile></app-user-edit-profile>

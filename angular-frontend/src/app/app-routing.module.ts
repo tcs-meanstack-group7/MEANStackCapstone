@@ -37,9 +37,10 @@ const routes: Routes = [
   {path:"\admin-view-request", component:AdminViewRequestComponent},
   {path:"\register",component:RegisterComponent},
   { path: "\RaiseTicket", component: RaiseTicketComponent },
-  { path: "\products", component: ProductComponent },
-  { path: "\cart", component: CartComponent },
-  { path: '\order', component: OrderComponent },
+  { path: "products", component: ProductComponent },
+  { path: "cart", component: CartComponent },
+  { path: 'order', component: OrderComponent },
+
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 

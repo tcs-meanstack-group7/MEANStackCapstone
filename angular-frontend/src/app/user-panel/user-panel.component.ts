@@ -23,8 +23,16 @@ export class UserPanelComponent implements OnInit {
     //this.retrieveItem.retrieveCartItem().subscribe(result => this.products=result)
   }
 
-  showSendRequest(){
-    this.display = "sendRequest"
+  showProducts(){
+    this.display = "products"
+  }
+
+  showCart(){
+    this.display = "cart"
+  }
+
+  showOrderStatus(){
+    this.display = "orderStatus"
   }
 
   showEditProfile(){
@@ -39,8 +47,8 @@ export class UserPanelComponent implements OnInit {
   }
 
   showLogout(){
-    this.display = "showLogout",    
-    this.router.navigate(["index"]);
+    this.display = "logout";    
+    //this.router.navigate(["index"]);
   }
   
   updateCartItem(){

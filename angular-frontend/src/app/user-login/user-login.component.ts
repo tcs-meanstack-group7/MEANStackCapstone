@@ -36,6 +36,7 @@ export class UserLoginComponent implements OnInit {
       console.log(result.token);
       sessionStorage.setItem("token",result.token);
       sessionStorage.setItem("id",result.user._id)
+      console.log(result.user._id)
       this.router.navigate(["auser-panel"]);
     },
       (error:any)=>{
@@ -53,5 +54,9 @@ export class UserLoginComponent implements OnInit {
 
   goBackToIndex(){
     this.router.navigate(["/index"]);
+  }
+
+  raiseTicket(){
+    this.router.navigate(["/RaiseTicket"]);
   }
 }

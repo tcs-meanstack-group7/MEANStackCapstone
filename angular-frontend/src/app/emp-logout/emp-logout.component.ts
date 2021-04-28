@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-emp-logout',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpLogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    sessionStorage.setItem("token","");
+    sessionStorage.setItem("id","");
+    this.router.navigate(["emp-login"]);
   }
 
 }
