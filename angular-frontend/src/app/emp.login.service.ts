@@ -23,10 +23,18 @@ export class LoginService {
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
-
   editProfile(changeRef:any){
     this.http.post("http://localhost:9090/api/emp/editProfile",changeRef,{responseType:'text'}).
     subscribe(result=>console.log(result),error=>console.log(error));
+  }
+
+  unlockUser(unlockRef:any){
+    this.http.post("http://localhost:9090/api/emp/unlock",unlockRef,{responseType:'text'}).
+    subscribe(result=>console.log(result),error=>console.log(error));
+  }
+
+  viewTickets(requestRef:any){
+    this.http.get("http://localhost:9090/api/user/viewTickets",requestRef)
   }
 
 

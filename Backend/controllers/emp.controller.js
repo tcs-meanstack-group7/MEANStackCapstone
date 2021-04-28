@@ -5,6 +5,8 @@ let empData = require('../models/reports.model');
 const Emp = require('../models/employee.model');
 const validationHandler = require('../validations/validationHandler');
 const userModel = require('../models/user.model');
+var { RaiseTicket } = require('../models/employee');
+
 
 
 exports.login = async(req, res, next) => {
@@ -92,7 +94,7 @@ exports.unlock = async(req, res) => {
     let user = new userModel();
     let newPassword = await user.encryptPassword("NewPassword")
 
-    userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked:false, consecutiveFailed:0 } }, (err, result) => {
+    userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked: false, consecutiveFailed: 0 } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
                 res.send("Record updated succesfully")
@@ -101,6 +103,14 @@ exports.unlock = async(req, res) => {
             }
         } else {
             res.send("Error generated " + err);
+        }
+    })
+}
+
+exports.viewTickets = async(req, res) => {
+    RaiseTicket.find((err, data) => {
+        if (!err) {
+            res.json(data);
         }
     })
 }
