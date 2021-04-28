@@ -11,4 +11,7 @@ router.post("/sendRequest", authController.sendrequest)
 router.post("/editProfile", authController.editProfile)
 router.post("/unlock", authController.unlock)
 
+//delete employee
+router.get("/deleteEmpById/:empId",authController.deleteEmpById);
+
 module.exports = router;
