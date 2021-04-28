@@ -4,7 +4,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 var { Product } = require('../models/Products');
 
-// => localhost:3000/Product/
+// => localhost:9090/Product/
 router.get('/', (req, res) => {
     Product.find((err, docs) => {
         console.log(docs);

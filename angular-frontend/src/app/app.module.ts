@@ -31,6 +31,10 @@ import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { CartComponent } from './Shopping/cart/cart.component';
 import { ProductComponent } from './Shopping/Product/product.component';
 import { ShoppingComponent } from './Shopping/shopping.component';
+import { OrderComponent } from './order/order.component';
+import { ProductService } from './product.service';
+import { FundsService } from './funds.service';
+import { OrderService } from './Order.service';
 import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
@@ -70,6 +74,8 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
     ProductComponent,
     CartComponent,
     RaiseTicketComponent,
+    OrderComponent,
+
     AdminAddProdComponent,
     AdminDeleteProdComponent,
     AdminUpdateProdComponent,
@@ -88,7 +94,7 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,ProductService, FundsService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

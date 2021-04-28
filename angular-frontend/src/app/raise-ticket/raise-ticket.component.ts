@@ -20,6 +20,7 @@ export class RaiseTicketComponent implements OnInit {
     this.resetForm();
   }
 
+  //Clears the fields
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
@@ -31,6 +32,7 @@ export class RaiseTicketComponent implements OnInit {
     }
   }
 
+  //Form details are pushed to api
   onSubmit(form: NgForm) {
     if (form.value._id == "") {
       this.employeeService.postEmployee(form.value).subscribe((res) => {
