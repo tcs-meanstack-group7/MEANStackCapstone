@@ -18,6 +18,10 @@ export class OrderService {
     return this.http.post<Order>(this.baseURL , order);
   }
 
+  GetOrders(body:any):Observable<Object>{
+    return this.http.post<Order>(this.baseURL+"/getOrders" , body);
+  }
+
  
 
 }

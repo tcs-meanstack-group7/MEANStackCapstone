@@ -14,8 +14,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    debugger;
-    console.log(req.body);
     var orders = new Orders({
         id: req.body.id,
         emailid: req.body.emailid,

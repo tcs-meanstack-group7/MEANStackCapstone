@@ -120,7 +120,7 @@ export class CartComponent implements OnInit {
         this.fundService.Updatefunds(this.funds).subscribe((res: any) => {
           console.log(res);
         });
-        this.order.Amount = this.total;
+        this.order.amount = this.total;
         this.order._id = this.funds._id;
         this.order.emailid = this.funds.emailid;
         this.order.status = "Order Place sucessful";
