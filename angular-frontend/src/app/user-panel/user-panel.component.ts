@@ -47,8 +47,8 @@ export class UserPanelComponent implements OnInit {
   }
 
   showLogout(){
-    this.display = "showLogout",    
-    this.router.navigate(["index"]);
+    this.display = "logout";    
+    //this.router.navigate(["index"]);
   }
   
   updateCartItem(){
