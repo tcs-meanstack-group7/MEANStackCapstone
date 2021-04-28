@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../emp.login.service';
+
 
 @Component({
   selector: 'app-emp-login',
@@ -7,16 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./emp-login.component.css']
 })
 export class EmpLoginComponent implements OnInit {
-
-  constructor(public router:Router) { }
-
+  constructor(public router:Router, public empSer:LoginService) { }
+  msg:String="";
   ngOnInit(): void {
   }
-  login(){
-    //Token must store when username and password must be correct 
-    //session Id or JWT (Json web Token);
-    sessionStorage.setItem("token","123");
-    this.router.navigate(["employee-panel"]);
+  
+  login(userRef:any){
+    console.log(userRef._id)
+    console.log(userRef.password)
+    this.empSer.ValidateEmployee({"empId":userRef._id,"password":userRef.password}).subscribe((result:any)=>{
+      console.log(result.token);
+      sessionStorage.setItem("token",result.token);
+      sessionStorage.setItem("_id",result.emp._id);
+      this.router.navigate(["employee-panel"]);
+    },
+      (error:any)=>{
+        console.log(error);
+        this.msg =error.error.message;
+
+      })
+    //sessionStorage.setItem("token","123");
+    //this.router.navigate(["employee-panel"]);
   }
 
+  goBackToIndex(){
+    this.router.navigate(["/index"]);
+  }
 }

@@ -9,12 +9,17 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { RegisterComponent } from './register/register.component';
 
 import { MyAuthGaurd } from './myAuthguards';
 import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
+
+import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
+import { ProductComponent } from './Shopping/Product/product.component';
+import { CartComponent } from './Shopping/cart/cart.component';
 
 
 const routes: Routes = [
@@ -29,6 +34,10 @@ const routes: Routes = [
   {path:"\admin-delete-prod", component:AdminDeleteProdComponent},
   {path:"\admin-update-prod", component:AdminUpdateProdComponent},
   {path:"\admin-view-request", component:AdminViewRequestComponent},
+  {path:"\register",component:RegisterComponent},
+  { path: "\RaiseTicket", component: RaiseTicketComponent },
+  { path: "\products", component: ProductComponent },
+  { path: "\cart", component: CartComponent },
   {path:"",redirectTo:"\index",pathMatch:"full"}
 ];
 

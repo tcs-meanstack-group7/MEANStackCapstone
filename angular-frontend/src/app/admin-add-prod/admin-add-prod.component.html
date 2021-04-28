@@ -4,6 +4,7 @@
     <form #productRef="ngForm" (ngSubmit)="addProd(productRef.value)">
         <label>Id:</label>
         <input type="text" name="pid" ngModel><br/>
+
         <label>ProductName</label>
         <input type="text" name="pname" ngModel><br/>
         <label>Price</label>
@@ -13,6 +14,7 @@
        
         
         <br/>
+
        
         <input type="submit" value="Add"/>
         <input type="reset" value="reset"/>
@@ -45,3 +47,4 @@
             </tbody>
     </table>
 </div>
+

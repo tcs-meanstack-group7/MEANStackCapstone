@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"user1@gmail.com\",\n    \"password\":\"myPass\",\n    \"fname\":\"User\",\n    \"lname\":\"One\",\n    \"dob\":\"1990-01-01\",\n    \"pnumber\":\"1112223333\",\n    \"address\":\"123 Main St\"\n\n}",
+					"raw": "{\n    \"email\":\"user3@gmail.com\",\n    \"password\":\"myPass\",\n    \"fname\":\"User\",\n    \"lname\":\"Three\",\n    \"dob\":\"1990-01-01\",\n    \"pnumber\":\"1112223333\",\n    \"address\":\"123 Main St\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,14 +20,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9090/api/auth/signup",
+					"raw": "localhost:9090/api/user/signup",
 					"host": [
 						"localhost"
 					],
 					"port": "9090",
 					"path": [
 						"api",
-						"auth",
+						"user",
 						"signup"
 					]
 				}
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"user1@gmail.com\",\n    \"password\":\"myPass\"\n}",
+					"raw": "{\n    \"email\":\"user2@gmail.com\",\n    \"password\":\"myPass\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,14 +49,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9090/api/auth/login",
+					"raw": "localhost:9090/api/user/login",
 					"host": [
 						"localhost"
 					],
 					"port": "9090",
 					"path": [
 						"api",
-						"auth",
+						"user",
 						"login"
 					]
 				}
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"emp1\",\n    \"password\":\"myPass\"\n\n}",
+					"raw": "{\n    \"empId\":\"emp4\",\n    \"password\":\"myPass\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,7 +99,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"emp1\",\n    \"password\":\"myPass\"\n\n}",
+					"raw": "{\n    \"empId\":\"emp2\",\n    \"password\":\"myPass\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -116,6 +116,97 @@
 						"api",
 						"emp",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funds",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/user/funds/6087049dfa5ab26194f53a7f",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"user",
+						"funds",
+						"6087049dfa5ab26194f53a7f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Funds",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"6087049dfa5ab26194f53a7f\",\n    \"add\": \"100\",\n    \"accountNumber\": \"12345\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/user/addFunds",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"user",
+						"addFunds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\":\"6087049dfa5ab26194f53a7f\",\n    \"address\":\"125 Main St\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/user/editUser",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"user",
+						"editUser"
 					]
 				}
 			},

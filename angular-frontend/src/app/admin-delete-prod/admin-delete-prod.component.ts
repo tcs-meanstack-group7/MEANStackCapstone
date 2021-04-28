@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+
 import { AdminService } from '../admin.service';
 import { AdminProduct } from '../model.admin'
 @Component({
@@ -17,10 +18,10 @@ export class AdminDeleteProdComponent implements OnInit {
  
   deleteProd(id:any){
     console.log("ID is "+id);
+
     this.proService.deleteProductById(id).subscribe((result:string)=> {
         this.deleteMsg=result;
     })
   }
 }
-
 

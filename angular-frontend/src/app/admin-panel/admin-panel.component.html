@@ -1,5 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
     <div class="container-fluid">
         <a class="navbar-brand">Welcome Admin! </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,3 +25,29 @@
     </div>
 
 </nav>
+
+
+<div>
+    <input type="button" value="Add Product" (click)="addProd()" class="btn btn-primary"/>
+    <input type="button" value="Delete Product" (click)="deleteProd()" class="btn btn-primary"/>
+    <input type="button" value=" Update Product" (click)="updateProd()" class="btn btn-primary"/>
+    <input type="button" value="View Request" (click)="viewRequest()" class="btn btn-primary"/>
+    <input type="button" value="Logout" (click)="showLogout()" class="btn btn-primary"/>
+</div>
+<div class="container-fluid">
+    <div *ngIf="display=='addProd'">
+        <app-admin-add-prod></app-admin-add-prod>>
+    </div>
+    <div *ngIf="display=='deleteProd'">
+        <app-admin-delete-prod></app-admin-delete-prod>
+    </div>
+    <div *ngIf="display=='updateProd'">
+        <app-admin-update-prod></app-admin-update-prod>>
+    </div>
+    <div *ngIf="display=='viewRequest'">
+        <app-admin-view-request></app-admin-view-request>>
+    </div>
+    <div *ngIf="display=='logout'">
+        <app-admin-logout></app-admin-logout>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../emp.login.service';
 import { AdminProduct } from '../model.admin';
+
 @Component({
   selector: 'app-admin-view-request',
   templateUrl: './admin-view-request.component.html',
@@ -16,4 +17,5 @@ export class AdminViewRequestComponent implements OnInit {
     console.log(requestRef);
     this.empService.reviewRequest(requestRef);
   }
+
 }

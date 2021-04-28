@@ -22,4 +22,5 @@ export class AdminAddProdComponent implements OnInit {
     console.log(productRef);
     this.proService.storeProductDetailsInfo(productRef);
   }
+
 }

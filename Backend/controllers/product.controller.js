@@ -26,11 +26,12 @@ let getProductById = (req,res)=> {
 let storeProductDetails = (req,res)=> {
    
     let product = new ProductModel({
-        _id:req.body.pid,
+       // _id:req.body.pid,
         pname:req.body.pname,
         quantity:req.body.quantity,
         price:req.body.price
         
+
     });
 
     product.save((err,result)=> {
