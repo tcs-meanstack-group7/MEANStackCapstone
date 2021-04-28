@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-user-type',
@@ -9,20 +7,9 @@ import { Router } from '@angular/router';
 })
 export class UserTypeComponent implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  admin(){
-    this.router.navigate(["admin-login"]);
-  }
-  employee(){
-    this.router.navigate(["emp-login"]);
-  }
-
-  user(){
-    this.router.navigate(["auser-login"]);
   }
 
 }
