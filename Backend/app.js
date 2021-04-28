@@ -52,7 +52,11 @@ var Product = require("./routers/product.router.js");
 // http://localhost:9090/product/deleteProductById/101
 // http://localhost:9090/product/updateProductPrice  update price using pid {"pid":103,"price":48000}
 
-app.use("/product", Product)
+// http://localhost:9090/RaiseTicket/postEmployee      INSERT RAISE TICKET MODEL {"useremailid":"tej@gma.com","reason":"random reason"}
+// http://localhost:9090/Orders/PostOrderDetails      TO POST THE ORDER DETAILS INTO COLLECTION
+
+app.use("/product",Product)
+
 app.use('/api/emp', empRoutes);
 app.use('/api/user', userRoutes);
 app.use(errorHandler)

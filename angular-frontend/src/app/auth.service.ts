@@ -17,6 +17,7 @@ export class AuthService {
     //let headers = new HttpHeaders();
    // headers.append("Content-Type", "application/json");
     return this.http.post('http://localhost:9090/api/user/signUp', user);
+
     //, {headers: headers}).map((res: { json: () => any; }) => res.json());
   }
 

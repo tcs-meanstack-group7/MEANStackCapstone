@@ -16,14 +16,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     debugger;
     console.log(req.body);
-    var Orders = new Orders({
+    var orders = new Orders({
         id: req.body.id,
         emailid: req.body.emailid,
         amount: req.body.amount,
         status : req.body.status,
 
     });
-    Orders.save((err, doc) => {
+    orders.save((err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Request  Save :' + JSON.stringify(err, undefined, 2)); }
     });
