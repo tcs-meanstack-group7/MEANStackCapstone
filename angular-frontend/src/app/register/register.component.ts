@@ -10,8 +10,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-
   showSuccessMessage!: boolean;
 
   constructor(public validateService: ValidateService, 
@@ -23,6 +21,7 @@ export class RegisterComponent implements OnInit {
     let body = {"email": userRef.email,"password": userRef.password,"fname": userRef.fname,"lname": userRef.lname,"dob": userRef.dob,"pnumber": userRef.pnumber,"address": userRef.address}
     this.authService.registerUser(body).subscribe((result:any)=>{
       console.log(result)
+      this.router.navigate(["auser-panel"]);
     },
       (error:any)=>{
         console.log(error);
@@ -31,33 +30,9 @@ export class RegisterComponent implements OnInit {
     //sessionStorage.setItem("token","123");
     //this.router.navigate(["employee-panel"]);
   }
-
-  /*onRegisterSubmit(form: any){
-    const user = {"fname": form.fname,"lname": form.lname,"dob": form.dob,"pnumber": form.pnumber,"address": form.address,"email": form.email,"password": form.password}
-
-
-    
-
-
-   this.authService.registerUser(user).subscribe(
-      res => {
-        this.showSuccessMessage = true;
-      },
-      err => {}
-    )
- /**
-    this.authService.registerUser(user).subscribe(data => {
-      if (data.success){
-        this.router.navigate(['/auser-login']);
-      } else {
-        console.log("Something went wrong");
-        this.router.navigate(['/register']);
-      }
-    })**/
-  
-
-  // routes user back to login page if user changes their mind
-  /*goBackToLogin(){
+  goBackToLogin(){
     this.router.navigate(["/auser-login"]);
-  }*/
+  }
 }
+
+

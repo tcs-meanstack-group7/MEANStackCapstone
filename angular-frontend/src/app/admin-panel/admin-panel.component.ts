@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
-  empId!: String;
-  password!: String;
+ // empId!: String;
+ // password!: String;
   showSuccessMessage!: boolean;
   display:string=""
 
@@ -63,6 +63,21 @@ export class AdminPanelComponent implements OnInit {
     this.itemService.createItem(shopsRef);
   }
 
+  register(empRef:any){
+    let body = {"empID": empRef.empId,"password": empRef.password}
+    this.authService.registerEmp(body).subscribe((result:any)=>{
+      console.log(result)
+      console.log("Employee Register Success!");
+      //this.router.navigate(["auser-panel"]);
+    },
+      (error:any)=>{
+        console.log(error);
+
+      })
+    //sessionStorage.setItem("token","123");
+    //this.router.navigate(["employee-panel"]);
+  }
+/** 
   empRegisterSubmit(form: NgForm){
     const emp = {
       empId: this.empId,
@@ -75,7 +90,7 @@ export class AdminPanelComponent implements OnInit {
     /** 
     if(!this.validateService.validateId(emp.empId)){
       console.log('Please fille EmpID');
-    } **/
+    } 
 
     this.authService.registerEmp(form.value).subscribe(
       res => {
@@ -83,5 +98,5 @@ export class AdminPanelComponent implements OnInit {
       },
       err => {}
     )
-  }
+  } **/
 }
