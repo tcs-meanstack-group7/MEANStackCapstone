@@ -1,1 +1,11 @@
-<p>emp-send-request works!</p>
+<div>
+    <form #requestRef="ngForm" (ngSubmit)="requestProduct(requestRef.value)">
+
+        <label>Product Name:</label>
+        <input type="text" id="productName" name="productName" ngModel><br/><br/>
+        <label>Quantity: </label>
+        <input type="number" id="quantity" name="quantity" ngModel><br/><br/>
+        <input type="submit" value="Request" style='margin-left:30px' class="btn btn-primary" />
+        <input type="reset" value="Reset" style='margin-left:16px' class="btn btn-primary" />
+    </form>
+</div>

@@ -22,18 +22,18 @@ var OrdersController = require('./controllers/OrderController.js')
 let url = "mongodb://localhost:27017/meanstack";
 
 //middleware enable data from post method.
-app.use(bodyParser.urlencoded({extended:true}));    // enable body part data  
-app.use(bodyParser.json());                         // json data. 
-app.use(cors());           // enable cors policy 
-app.use(express.static(path.join(__dirname,"public")));
+app.use(bodyParser.urlencoded({ extended: true })); // enable body part data  
+app.use(bodyParser.json()); // json data. 
+app.use(cors()); // enable cors policy 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(passportJWT.initialize());
 
 //Database connection without warning 
-const mongooseDbOption ={       // to avoid warning 
+const mongooseDbOption = { // to avoid warning 
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
-mongoose.connect(url,mongooseDbOption);   //ready to connect 
+mongoose.connect(url, mongooseDbOption); //ready to connect 
 
 //Connect the data 
 mongoose.connection
@@ -52,7 +52,7 @@ var Product = require("./routers/product.router.js");
 // http://localhost:9090/product/deleteProductById/101
 // http://localhost:9090/product/updateProductPrice  update price using pid {"pid":103,"price":48000}
 
-app.use("/product",Product)
+app.use("/product", Product)
 app.use('/api/emp', empRoutes);
 app.use('/api/user', userRoutes);
 app.use(errorHandler)
@@ -64,8 +64,10 @@ app.use('/orders', OrdersController);
 
 //app.use("/order",Order)
 //app.use("/customer",Customer)
+// http://localhost:9090/api/user/signUp
+// http://localhost:9090/api/user/login
+
+//http://localhost:9090/api/emp/editProfile
 
 
-
-app.listen(9090,()=>console.log("Server running on port number 9090"));
-
+app.listen(9090, () => console.log("Server running on port number 9090"));

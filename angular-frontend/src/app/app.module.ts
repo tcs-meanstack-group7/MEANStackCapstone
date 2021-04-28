@@ -8,7 +8,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmpSendRequestComponent } from './emp-send-request/emp-send-request.component';
 import { EmpUpdateOrderComponent } from './emp-update-order/emp-update-order.component';
 import { EmpUnlockUserComponent } from './emp-unlock-user/emp-unlock-user.component';
-import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.component';
+
 import { EmpLogoutComponent } from './emp-logout/emp-logout.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { EmpPanelComponent } from './emp-panel/emp-panel.component';
@@ -35,6 +35,7 @@ import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
+import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.component';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
     EmpSendRequestComponent,
     EmpUpdateOrderComponent,
     EmpUnlockUserComponent,
-    EmpEditProfileComponent,
+ 
     EmpLogoutComponent,
     EmpLoginComponent,
     EmpPanelComponent,
@@ -69,7 +70,8 @@ import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
     AdminDeleteProdComponent,
     AdminUpdateProdComponent,
     AdminViewRequestComponent,
-    AdminLogoutComponent
+    AdminLogoutComponent,
+    EmpEditProfileComponent
   ],
   imports: [
     BrowserModule,
