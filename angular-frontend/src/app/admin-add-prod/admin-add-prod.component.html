@@ -1,13 +1,20 @@
 
 <div>
+    <h2>Add Product</h2>
     <form #productRef="ngForm" (ngSubmit)="addProd(productRef.value)">
-        <label>Quantity</label>
-        <input type="text" name="quant" ngModel><br/>
+        <label>Id:</label>
+        <input type="text" name="pid" ngModel><br/>
+
         <label>ProductName</label>
         <input type="text" name="pname" ngModel><br/>
         <label>Price</label>
         <input type="text" name="price" ngModel><br/>
-        <label>ID</label><br/>
+        <label>Quantity</label>
+        <input type="text" name="quantity" ngModel><br/>
+       
+        
+        <br/>
+
        
         <input type="submit" value="Add"/>
         <input type="reset" value="reset"/>
@@ -18,17 +25,26 @@
 <div>
     <table border="1">
             <tr>
-                <th>ProductName</th>
-                <th>Quantity</th>
+                <!-- Auto generated IDs -->
+                <th>Product Id</th>
+
+                <!-- IDs to delete and update -->
+                <th>Id</th>  
+                <th>Product Name</th>
                 <th>Price</th>
-                <th>ID</th>
+                <th>Quantity</th>
             </tr>
-            <tr *ngFor="let pp of products; let i = index">
-                    <td>{{pp.pname}}</td>
-                    <td>{{pp.quant}}</td>
-                    <td>{{pp.price}}</td>
-                    <td>{{i+1}}</td>
-                    
-            </tr>
+            <tbody *ngFor="let pp of products; let i = index">
+               
+                <td>{{i+1}}</td>
+                <td>{{pp._id}}</td>
+                <td>{{pp.pname}}</td>
+                <td>{{pp.price}}</td>
+                <td>{{pp.quantity}}</td>
+                
+                
+               
+            </tbody>
     </table>
 </div>
+

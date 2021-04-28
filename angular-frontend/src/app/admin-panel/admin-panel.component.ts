@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ItemService } from '../item.service';
 import { ValidateService } from '../validate.service';
 import { AuthService } from '../auth.service';
@@ -17,12 +18,27 @@ export class AdminPanelComponent implements OnInit {
   showSuccessMessage!: boolean;
   display:string=""
 
+
   constructor(public validateService: ValidateService, 
     public authService: AuthService, public itemService:ItemService,public router:Router) { }
 
   ngOnInit(): void {
   }
 
+  home(){
+    this.router.navigate(["index"]);
+  }
+  addProduct(){
+    this.router.navigate(["admin-add-prod"]);
+  }
+  deleteProduct(){
+    this.router.navigate(["admin-delete-prod"]);
+  }
+  updateProduct(){
+    this.router.navigate(["admin-update-prod"]);
+  }
+  viewReq(){
+    this.router.navigate(["admin-view-request"]);
   addProd(){
     this.display = "addProd"
   }

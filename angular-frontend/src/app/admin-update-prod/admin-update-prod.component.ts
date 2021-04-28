@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-update-prod.component.css']
 })
 export class AdminUpdateProdComponent implements OnInit {
+  products?:Array<AdminProduct>;
   updateMsg?:string;
-  constructor(public proService:AdminService)  { }
+  constructor(public router:Router, public proService:AdminService)  { }
 
   ngOnInit(): void {
-    
+    this.proService.retrieveAllProductDetails().subscribe(result=>this.products=result);
+
   }
   updatePrice(productRef:any){
     console.log(productRef);

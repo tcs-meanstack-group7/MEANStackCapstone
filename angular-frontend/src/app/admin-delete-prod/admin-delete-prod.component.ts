@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
 import { AdminService } from '../admin.service';
 import { AdminProduct } from '../model.admin'
 @Component({
@@ -8,14 +10,18 @@ import { AdminProduct } from '../model.admin'
 })
 export class AdminDeleteProdComponent implements OnInit {
   deleteMsg?:string;
-  constructor(public proService:AdminService) { }
+  productForm: any;
+  constructor(public formBuilder: FormBuilder,public proService:AdminService) { }
 
   ngOnInit(): void {
   }
+ 
   deleteProd(id:any){
-    console.log("id is "+id);
+    console.log("ID is "+id);
+
     this.proService.deleteProductById(id).subscribe((result:string)=> {
         this.deleteMsg=result;
     })
   }
 }
+

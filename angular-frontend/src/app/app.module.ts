@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -17,6 +18,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+
 import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +36,8 @@ import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component
 import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
 import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
 import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.component';
 
@@ -56,6 +60,7 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
     AdminPanelComponent,
     UserLoginComponent,
     UserPanelComponent,
+
     RegisterComponent,
     UserSendRequestComponent,
     UserEditProfileComponent,
@@ -71,7 +76,11 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
     AdminUpdateProdComponent,
     AdminViewRequestComponent,
     AdminLogoutComponent,
-    EmpEditProfileComponent
+    EmpEditProfileComponent,
+    AdminAddProdComponent,
+    AdminDeleteProdComponent,
+    AdminUpdateProdComponent,
+    AdminViewRequestComponent
   ],
   imports: [
     BrowserModule,

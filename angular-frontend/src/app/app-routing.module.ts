@@ -12,6 +12,11 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { RegisterComponent } from './register/register.component';
 
 import { MyAuthGaurd } from './myAuthguards';
+import { AdminAddProdComponent } from './admin-add-prod/admin-add-prod.component';
+import { AdminDeleteProdComponent } from './admin-delete-prod/admin-delete-prod.component';
+import { AdminUpdateProdComponent } from './admin-update-prod/admin-update-prod.component';
+import { AdminViewRequestComponent } from './admin-view-request/admin-view-request.component';
+
 import { RaiseTicketComponent } from './raise-ticket/raise-ticket.component';
 import { ProductComponent } from './Shopping/Product/product.component';
 import { CartComponent } from './Shopping/cart/cart.component';
@@ -25,6 +30,10 @@ const routes: Routes = [
   {path:"\auser-login",component:UserLoginComponent},
   {path:"\auser-panel",component:UserPanelComponent},
   {path:"\index",component:UserTypeComponent},
+  {path:"\admin-add-prod", component:AdminAddProdComponent},
+  {path:"\admin-delete-prod", component:AdminDeleteProdComponent},
+  {path:"\admin-update-prod", component:AdminUpdateProdComponent},
+  {path:"\admin-view-request", component:AdminViewRequestComponent},
   {path:"\register",component:RegisterComponent},
   { path: "\RaiseTicket", component: RaiseTicketComponent },
   { path: "\products", component: ProductComponent },

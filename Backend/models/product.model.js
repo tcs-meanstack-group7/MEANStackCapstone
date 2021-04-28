@@ -5,7 +5,9 @@ let ProductSchema = new mongoose.Schema({
   //_id:Number,
     pname:String,
     price:Number,
-    quant:Number
+    quantity:Number
+    
+
 })
 
 let ProductModel = mongoose.model("product",ProductSchema,"Products");

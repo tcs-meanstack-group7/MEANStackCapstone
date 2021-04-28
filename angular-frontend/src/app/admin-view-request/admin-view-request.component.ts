@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../emp.login.service';
+import { AdminProduct } from '../model.admin';
 
 @Component({
   selector: 'app-admin-view-request',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-view-request.component.css']
 })
 export class AdminViewRequestComponent implements OnInit {
-
-  constructor() { }
+  products?:Array<AdminProduct>;
+  constructor(public empService:LoginService) { }
 
   ngOnInit(): void {
+  }
+  reviewReq(requestRef:any){
+    console.log(requestRef);
+    this.empService.reviewRequest(requestRef);
   }
 
 }

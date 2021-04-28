@@ -18,6 +18,11 @@ export class LoginService {
     this.http.post("http://localhost:9090/api/emp/sendRequest",requestRef,{responseType:"text"}).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
+  reviewRequest(requestRef:any){
+    this.http.post("http://localhost:9090/api/emp/reviewRequest",requestRef,{responseType:"text"}).
+    subscribe(result=>console.log(result),error=>console.log(error));
+  }
+
 
   editProfile(changeRef:any){
     this.http.post("http://localhost:9090/api/emp/editProfile",changeRef,{responseType:'text'}).
