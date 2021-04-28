@@ -43,6 +43,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.component';
+import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employee.component';
+import { AdminDeleteEmployeeComponent } from './admin-delete-employee/admin-delete-employee.component';
+import { AdminGenerateReportsComponent } from './admin-generate-reports/admin-generate-reports.component';
 
 
 @NgModule({
@@ -85,7 +88,10 @@ import { EmpEditProfileComponent } from './emp-edit-profile/emp-edit-profile.com
     AdminAddProdComponent,
     AdminDeleteProdComponent,
     AdminUpdateProdComponent,
-    AdminViewRequestComponent
+    AdminViewRequestComponent,
+    AdminAddEmployeeComponent,
+    AdminDeleteEmployeeComponent,
+    AdminGenerateReportsComponent
   ],
   imports: [
     BrowserModule,
