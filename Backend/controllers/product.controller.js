@@ -26,9 +26,12 @@ let getProductById = (req,res)=> {
 let storeProductDetails = (req,res)=> {
    
     let product = new ProductModel({
-        _id:req.body.pid,
+       // _id:req.body.pid,
         pname:req.body.pname,
+        quantity:req.body.quantity,
         price:req.body.price
+        
+
     });
 
     product.save((err,result)=> {
@@ -43,7 +46,7 @@ let storeProductDetails = (req,res)=> {
 }
 
 let deleteProductById= (req,res)=> {
-    let pid = req.params.pid;
+    let pid = req.body._id;
     ProductModel.deleteOne({_id:pid},(err,result)=> {
         if(!err){
                 if(result.deletedCount>0){
@@ -59,9 +62,10 @@ let deleteProductById= (req,res)=> {
 }
 
 let updateProductPrice= (req,res)=> {
-    let pid = req.body.pid;
+    let pid = req.body._id;
+    let updatedQty = req.body.quantity;
     let updatedPrice = req.body.price;
-    ProductModel.updateMany({_id:pid},{$set:{price:updatedPrice}},(err,result)=> {
+    ProductModel.updateMany({_id:pid},{$set:{quantity:updatedQty,price:updatedPrice}},(err,result)=> {
         if(!err){
             if(result.nModified>0){
                     res.send("Record updated succesfully")
