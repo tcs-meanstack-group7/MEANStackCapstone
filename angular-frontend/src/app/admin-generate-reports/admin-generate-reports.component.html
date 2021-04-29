@@ -3,17 +3,13 @@
     <h2>Daily Report</h2>
     <table border="1">
         <tr>
-            <th>Product Name</th>
+            <th>Product ID</th>
             <th>Product Price</th>
         </tr>
-        <tbody *ngFor="let p of products">
-            <td>{{p.pname}}</td>
-            <td>{{p.price}}</td>
+        <tbody *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+            <td>{{o.amount}}</td>
         </tbody>
-        <tr>
-            <td>MEAN Stack DVD for kids</td>
-            <td>34</td>
-        </tr>
     </table>
 </div>
 <br/>
@@ -21,13 +17,13 @@
     <h2>Weekly Report</h2>
     <table border="1">
         <tr>
-            <th>Product Name</th>
+            <th>Product ID</th>
             <th>Product Price</th>
         </tr>
-        <tr>
-            <td>MEAN Stack DVD for kids</td>
-            <td>34</td>
-        </tr>
+        <tbody *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+            <td>{{o.amount}}</td>
+        </tbody>
     </table>
 </div>
 <br/>
@@ -35,13 +31,13 @@
     <h2>Monthly Report</h2>
     <table border="1">
         <tr>
-            <th>Product Name</th>
+            <th>Product ID</th>
             <th>Product Price</th>
         </tr>
-        <tr>
-            <td>MEAN Stack DVD for kids</td>
-            <td>34</td>
-        </tr>
+        <tbody *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+            <td>{{o.amount}}</td>
+        </tbody>
     </table>
 </div>
 <br/>
@@ -49,13 +45,13 @@
     <h2>Particular Product Report</h2>
     <table border="1">
         <tr>
-            <th>Product Name</th>
+            <th>Product ID</th>
             <th>Product Price</th>
         </tr>
-        <tr>
-            <td>MEAN Stack DVD for kids</td>
-            <td>34</td>
-        </tr>
+        <tbody *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+            <td>{{o.amount}}</td>
+        </tbody>
     </table>
 </div>
 <br/>
@@ -64,13 +60,11 @@
     <table border="1">
         <tr>
             <th>Customer ID</th>
-            <th>Customer Name</th>
-            <th>Purchased Items</th>
+            <th>Product ID</th>
         </tr>
-        <tr>
-            <td>60899d87b7eb8da1efe9b4d1</td>
-            <td>Maximilian</td>
-            <td>MEAN Stack DVD for kids</td>
-        </tr>
+        <tbody *ngFor="let o of orders">
+            <td>{{o._id}}</td>
+            <td>{{o.id}}</td>
+        </tbody>
     </table>
 </div>
