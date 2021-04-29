@@ -41,6 +41,10 @@ export class LoginService {
     console.log(param)
     return this.http.delete<RaiseTicket[]>("http://localhost:9090/api/emp/deleteTicket/"+param)
   }
+  deleteEmp(param:any):Observable<RaiseTicket[]>{
+    console.log(param)
+    return this.http.delete<RaiseTicket[]>("http://localhost:9090/api/emp/deleteEmpById/"+param)
+  }
 
 
 

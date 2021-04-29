@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { AdminService } from '../admin.service';
-import { AdminProduct } from '../model.admin'
+import {LoginService} from '../emp.login.service'
 
 @Component({
   selector: 'app-admin-delete-employee',
@@ -9,18 +7,21 @@ import { AdminProduct } from '../model.admin'
   styleUrls: ['./admin-delete-employee.component.css']
 })
 export class AdminDeleteEmployeeComponent implements OnInit {
-  deleteMsg=""
-  constructor() { }
+  msg=""
+  constructor(public empSer:LoginService) { }
 
   ngOnInit(): void {
   }
 
-  deleteEmp(empId:any){
-  /**  console.log("EmpID is "+empId);
+  deleteEmp(empRef:any){
+    this.empSer.deleteEmp(empRef.empid).subscribe((result:any)=>{
+      console.log(result)
+      this.msg = result.Response
+    },
+      (error:any)=>{
+        console.log(error);
 
-    this.proService.deleteEmpById(empId).subscribe((result:string)=> {
-        this.deleteMsg=result;
-    })**/ 
+      })
 
   }
 

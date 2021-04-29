@@ -108,11 +108,11 @@ exports.unlock = async(req, res) => {
 }
 
 exports.deleteEmpById = async(req, res) => {
-    let empId = req.params.empId;
-    Emp.deleteOne({ empId: empId }, (err, result) => {
+    let id = req.params.empId;
+    Emp.deleteOne({ empId: id }, (err, result) => {
         if (!err) {
             if (result.deletedCount > 0) {
-                res.send({"Response":"Record deleted successfully"});
+                res.send({"Response":"Employee deleted successfully"});
             } else {
                 res.send("Record not present");
             }
