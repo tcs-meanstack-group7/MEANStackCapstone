@@ -1,1 +1,27 @@
-<p>emp-update-order works!</p>
+<div>
+    <h2>Update Order</h2>
+    <div *ngIf="orders.length>0">
+        <h4>Current Orders</h4>
+        <table border="1">
+            <tr>
+
+                <th>Order Id</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+            <tbody *ngFor="let o of orders">
+                <td>{{o._id}}</td>
+                <td>{{o.amount}}</td>
+                <td>{{o.status}}</td>
+            </tbody>
+        </table>
+    </div>
+    <form #orderRef="ngForm">
+        <label>Order ID</label>
+        <input type="text" name="id" ngModel required><br/>
+        <label>Status</label>
+        <input type="text" name="status" ngModel required><br/>
+        <input type="button" value="Update Order"  (click)="updateOrder(orderRef.value)" class="btn btn-primary"/>
+    </form>
+    {{msg}}
+</div>
