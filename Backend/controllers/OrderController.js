@@ -36,4 +36,17 @@ router.post('/getOrders', (req, res) => {
     });
 });
 
+router.put('/update', (req, res) => {
+    console.log(req.body);
+    oid = req.body.id;
+    newStatus = req.body.status;
+    Orders.findOneAndUpdate({_id:oid},{$set:{status:newStatus}},(err,result)=> {
+        if(!err){
+            res.send({"Response":"Record updated succesfully"})
+        }else {
+            res.send("Error generated "+err);
+        }
+    })
+})
+
 module.exports = router;

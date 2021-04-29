@@ -1,6 +1,7 @@
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+let EmpModel = require("../models/employee.model.js");
 
 var { RaiseTicket } = require('../models/employee');
 
@@ -41,6 +42,20 @@ router.put('/:id', (req, res) => {
     });
 });
 
-
+/** 
+let deleteEmpById= (req,res)=> {
+    let empId = req.params.empId;
+    EmpModel.deleteOne({_id:empId},(err,result)=> {
+        if(!err){
+                if(result.deletedCount>0){
+                    res.send("Record deleted successfully")
+                }else {
+                    res.send("Record not present");
+                }
+        }else {
+            res.send("Error generated "+err);
+        }
+    })
+}**/
 
 module.exports = router;
