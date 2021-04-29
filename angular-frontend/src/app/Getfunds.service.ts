@@ -9,7 +9,8 @@ import { Funds } from './Funds';
 
 @Injectable()
 export class GetFundsService {
-  readonly baseURL = 'http://localhost:9090/api/user/funds';
+  //readonly baseURL = 'http://localhost:9090/api/user/funds';
+  baseURL:string="http://54.226.99.137:9090"
 
   constructor(private http: HttpClient) { }
 

@@ -7,23 +7,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ItemService {
+  ipAddress:string="http://54.226.99.137:9090"
   deleteById(id: any) {
     throw new Error('Method not implemented.');
   }
   constructor(public http:HttpClient) { }
 //post method 1st parameter url and 2nd parameter json data. 
   createItem(shopsRef:any){
-    this.http.post("http://localhost:9090/api/user/createItem",shopsRef,{responseType:"text"}).
+    this.http.post(this.ipAddress+"/api/user/createItem",shopsRef,{responseType:"text"}).
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
 // retrieves items the admin added
   retrieveCartItem():Observable<Item[]>{
-     return this.http.get<Item[]>("http://localhost:9090/api/user/retrieveItemDetails")
+     return this.http.get<Item[]>(this.ipAddress+"/api/user/retrieveItemDetails")
   }
 
   retrieveProductById(id:any):Observable<Item[]>{
-    return this.http.get<Item[]>("http://localhost:9090/class/retrieveClassById/"+id)
+    return this.http.get<Item[]>(this.ipAddress+"/class/retrieveClassById/"+id)
   }
 /** 
   //by default all HttpClient method return type is observable with json format data. 

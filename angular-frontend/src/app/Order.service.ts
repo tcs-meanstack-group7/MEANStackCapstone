@@ -8,7 +8,9 @@ import { Order } from './Order.model';
 
 @Injectable()
 export class OrderService {
-  readonly baseURL = 'http://localhost:9090/Orders';
+  //readonly baseURL = 'http://localhost:9090/Orders';
+  baseURL:string="http://54.226.99.137:9090"
+  
 
   constructor(private http: HttpClient) { }
 

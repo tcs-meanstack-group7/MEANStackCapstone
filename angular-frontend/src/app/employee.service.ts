@@ -11,7 +11,8 @@ import { RaiseTicket } from './RaiseTicket.model';
 export class EmployeeService {
   selectedEmployee: RaiseTicket={_id:"",UserEmail:"", Reason:""};
   employees: RaiseTicket[]=[];
-  readonly baseURL = 'http://localhost:9090/RaiseTicket';
+  //readonly baseURL = 'http://localhost:9090/RaiseTicket';
+  baseURL:string="http://54.226.99.137:9090"
 
   constructor(private http: HttpClient) { }
 
