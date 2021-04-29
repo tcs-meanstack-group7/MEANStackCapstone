@@ -6,7 +6,7 @@ const Emp = require('../models/employee.model');
 const validationHandler = require('../validations/validationHandler');
 const userModel = require('../models/user.model');
 var { RaiseTicket } = require('../models/employee');
-
+var { Request } = require('../models/admin');
 
 
 exports.login = async(req, res, next) => {
@@ -71,7 +71,14 @@ exports.sendrequest = async(req, res) => {
     })
 
 }
-
+// Admin review request
+exports.reviewRequest = async(req, res) => {
+    Request.find({},(err,result)=>{
+        if(!err){
+            res.json(result);
+        }
+    })
+}
 exports.editProfile = async(req, res) => {
     let emp = new userModel();
     let email = req.body.email;
