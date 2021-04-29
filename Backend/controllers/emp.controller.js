@@ -64,7 +64,7 @@ exports.sendrequest = async(req, res) => {
 
     request.save((err, result) => {
         if (!err) {
-            res.send("Record stored successfully " + result)
+            res.send("Record stored successfully ")
         } else {
             res.send("Record didn't store " + err);
         }

@@ -7,22 +7,20 @@ import { LoginService } from '../emp.login.service';
   styleUrls: ['./emp-unlock-user.component.css']
 })
 export class EmpUnlockUserComponent implements OnInit {
-
+  Msg?:string;
   constructor(public unlockService:LoginService) { }
 
   ngOnInit(): void {
   }
   unlock(unlockRef:any){
-    this.unlockService.unlockUser(unlockRef);
-    this.unlockService.deleteTickets(unlockRef.email).subscribe((result:any)=>{
-      console.log(result)
-    },
-      (error:any)=>{
-        console.log(error);
+    console.log(unlockRef);
+    this.unlockService.unlockUser(unlockRef).subscribe((result:string)=> {
+      this.Msg=result;
+      this.reset();
+    });
+      
+    }
+    reset(){ }
 
-      })
-    this.reset();
   }
-  reset(){ }
-
-}
+  

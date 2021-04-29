@@ -17,23 +17,20 @@ export class LoginService {
     return this.http.post("http://localhost:9090/api/emp/login",body);
   }
 
-  sendRequest(requestRef:any){
-    this.http.post("http://localhost:9090/api/emp/sendRequest",requestRef,{responseType:"text"}).
-    subscribe(result=>console.log(result),error=>console.log(error));
+  sendRequest(requestRef:any):any{
+    return this.http.post("http://localhost:9090/api/emp/sendRequest",requestRef,{responseType:"text"})
   }
   reviewRequest():Observable<Request[]>{
     return this.http.get<Request[]>("http://localhost:9090/Request");
  }
 
 
-  editProfile(changeRef:any){
-    this.http.post("http://localhost:9090/api/emp/editProfile",changeRef,{responseType:'text'}).
-    subscribe(result=>console.log(result),error=>console.log(error));
+  editProfile(changeRef:any):any{
+    return this.http.post("http://localhost:9090/api/emp/editProfile",changeRef,{responseType:'text'})
   }
 
-  unlockUser(unlockRef:any){
-    this.http.post("http://localhost:9090/api/emp/unlock",unlockRef,{responseType:'text'}).
-    subscribe(result=>console.log(result),error=>console.log(error));
+  unlockUser(unlockRef:any):any{
+    return this.http.post("http://localhost:9090/api/emp/unlock",unlockRef,{responseType:'text'})
   }
 
   viewTickets():Observable<RaiseTicket[]>{
