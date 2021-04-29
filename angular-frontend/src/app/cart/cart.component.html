@@ -1,34 +1,29 @@
-
-<a [routerLink]="['/products']">Products</a> |
-<a [routerLink]="['/cart']">Cart</a>
-
 <h3>Cart Info</h3>
 <!--User Cart Table -->
 <table border="1">
-  <tr>
+  <tr class="padding-text">
     <th>Option</th>
-    <th>Id</th>
     <th>Name</th>
     <th>Price</th>
     <th>Quantity</th>
-    <th>Sub Total</th>
+    <th>Subtotal</th>
   </tr>
   <tr *ngFor="let item of items">
-    <td align="center">
-      <a (click)="remove(item.product._id)">Delete</a>
+    <td align="left">
+      <input type="button" value="Remove" (click)="remove(item)" class="btn btn-danger">
     </td>
-    <td>{{item.product._id}}</td>
-    <td>{{item.product.pname}}</td>
+    <td>{{item.pname}}</td>
 
-    <td>{{item.product.price}}</td>
-    <td>{{item.quantity}}</td>
-    <td>{{item.product.price * item.quantity}}</td>
+    <td class="price">{{item.price}}</td>
+    <td class="quantity">{{item.quantity}}</td>
+    <td class="quantity">{{item.price * item.quantity}}</td>
   </tr>
-  <tr>
-    <td colspan="6" align="right">Total</td>
+  <tr class="total">
+    <td colspan="6" align="right">Total Price :   </td>
     <td>{{total}}</td>
   </tr>
 </table>
+{{msg}}
 <br/>
 <br/>
 <button class="button" (click)="checkout()">CheckOut</button>

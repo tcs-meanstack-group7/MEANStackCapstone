@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -23,7 +22,7 @@ export class AdminLoginComponent implements OnInit {
     console.log(this.loginRef.value);   // all value 
     let user1 = this.loginRef.get("user")?.value;  // get specific control value. 
     let pass1 = this.loginRef.get("pass")?.value;
-    console.log(user1+" "+pass1);
+    //console.log(user1+" "+pass1);
     if(user1=="token" && pass1=="123"){
       this.msg = "Successfully Login!"
     //Token must store when username and password must be correct 
@@ -33,5 +32,8 @@ export class AdminLoginComponent implements OnInit {
     }else {
       this.msg = "Incorrect Login! please check your Username/Password";
     }
+  }
+  index(){
+    this.router.navigate(["index"]);
   }
 }

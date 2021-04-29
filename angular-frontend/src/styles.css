@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* photo credits-(https://toonclips.com/design/8205) */
+
+
+.btn {
+    margin: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.align {
+    text-align: center;
+}
+/*body {
+    background-image: url("shoppingPig.png");
+    background-repeat: no-repeat;
+    right: 150px;
+    background-size: 1050px, 1000px;
+}*/
+div {
+    text-align: center;
+}

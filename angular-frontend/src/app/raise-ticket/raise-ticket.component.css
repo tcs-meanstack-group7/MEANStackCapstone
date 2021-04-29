@@ -1,0 +1,12 @@
+.fullcolour{
+    background-color: bisque;
+}
+
+.paddingtext
+ {
+    padding-left: 10px;
+    padding-top: 22px;
+ }
+ input {
+     width: 50%;
+ }

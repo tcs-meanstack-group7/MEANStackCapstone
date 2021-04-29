@@ -27,11 +27,11 @@ export class UserEditProfileComponent implements OnInit {
     this.userService.UpdateUser({"id": id,"email": email,"password": password,"fname":fname,"lname":lname,"dob":dob,"pnumber":pnumber,"address":address})
     .subscribe((result:any)=>{
       console.log(result);
-      //this.msg = "Successfully Added";
+      this.msg = "Successfully Updated";
     },
       (error:any)=>{
         console.log(error);
-        //this.msg = error;
+        this.msg = "Error";
       })
   }
 

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Funds } from '../Funds';
-import { Item } from '../item';
 import { ProductService } from '../product.service';
 import { GetFundsService } from '../Getfunds.service';
+import { FundsService } from '../funds.service';
 import { OrderService } from '../Order.service';
 import { Order } from '../Order.model';
 
@@ -20,84 +20,40 @@ export class CartComponent implements OnInit {
   public items: Item[] = [];
   public funds: Funds = new Funds;
   public order: Order = new Order;
+  msg=""
 
   public total: number = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private fundService: GetFundsService,
+    private fundService: FundsService,
     private orderService: OrderService,
     private router: Router,
+     
   ) { }
 
   // Products added by user are fetched from local storage
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      var _id = params['_id'];
-      if (_id) {
-        var item: Item = {
-          product: this.productService.find(_id),
-          quantity: 1
-        };
-        if (localStorage.getItem('cart') == null) {
-          let cart: any = [];
-          cart.push(JSON.stringify(item));
-          localStorage.setItem('cart', JSON.stringify(cart));
-        } else {
-          let cart= JSON.parse(localStorage.getItem('cart')||'{}');
-          let index: number = -1;
-          for (var i = 0; i < cart.length; i++) {
-            let item: Item = JSON.parse(cart[i]);
-            if (item.product._id == _id) {
-              index = i;
-              break;
-            }
-          }
-          if (index == -1) {
-            cart.push(JSON.stringify(item));
-            localStorage.setItem('cart', JSON.stringify(cart));
-          } else {
-            let item: Item = JSON.parse(cart[index]);
-            item.quantity += 1;
-            cart[index] = JSON.stringify(item);
-            localStorage.setItem("cart", JSON.stringify(cart));
-          }
-        }
-        this.loadCart();
-      } else {
-        this.loadCart();
-      }
-    });
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.forEach((p:Item) => {
+      this.items.push(p)
+      this.total+=(p.quantity*p.price);
+    })
   }
 
   // For increasing the quantity of item
-  loadCart(): void {
-    this.total = 0;
-    this.items = [];
-    let cart = JSON.parse(localStorage.getItem('cart')||'{}');
-    for (var i = 0; i < cart.length; i++) {
-      let item = JSON.parse(cart[i]);
-      this.items.push({
-        product: item.product,
-        quantity: item.quantity
-      });
-      this.total += item.product.price * item.quantity;
-    }
-  }
+
 
   //For removing item from cart
-  remove(_id: string): void {
-    let cart: any = JSON.parse(localStorage.getItem('cart')||'{}');
-    let index: number = -1;
-    for (var i = 0; i < cart.length; i++) {
-      let item: Item = JSON.parse(cart[i]);
-      if (item.product._id == _id) {
-        cart.splice(i, 1);
-        break;
+  remove(item: any) {
+    console.log(item)
+    for (var i = 0; i < this.items.length; i++) {
+      if (this.items[i].pname == item.pname) {
+        this.total -= this.items[i].price*this.items[i].quantity
+        this.items.splice(i, 1);
       }
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    this.loadCart();
+    localStorage.setItem('cart',JSON.stringify(this.items))
   }
 
   // Fetching value from funds and checking out appropriately if funds are sufficient
@@ -106,13 +62,47 @@ export class CartComponent implements OnInit {
     //USER ID IS FETCHED FROM SESSION STORAGE WHICH IS STORED DURING THE LOGIN 
      var userid = sessionStorage.getItem("id")
 
-    this.fundService.GetUserFund("userid").subscribe((res :Funds) => {
-      debugger;
+     this.fundService.CheckFunds(userid).subscribe((res :any) => {
+      //debugger;
+      //console.log(this.total);
+      this.funds = res;
+     
+      if(this.total==0){
+        this.msg="Please select any product to checkout! "
+      }
+      else if (this.funds.funds < this.total) {
+        this.msg="Insufficent Funds"
+      }
+      else {
+        this.funds.funds = this.funds.funds - this.total;
+        console.log("updated funds" + this.funds.funds);
+        this.fundService.Spend({"id": userid,"amount": this.total}).subscribe((res: any) => {
+          console.log(res);
+        });
+        console.log("here")
+        console.log(this.funds)
+        this.order.amount = this.total;
+        this.order.id = userid||"";
+        this.order.emailid = this.funds.emailid;
+        this.order.status = "Order Placed Sucessfully";
+        this.orderService.PostOrderDetails(this.order).subscribe(res => {
+          console.log(this.order);
+          console.log(res);
+          this.msg="Order Placed sucessfully";
+          this.items = []
+          this.total = 0;
+        })
+      }
+    })
+
+    /*
+    this.fundService.GetUserFund(userid).subscribe((res :Funds) => {
+      //debugger;
       console.log(res);
       this.funds = res;
      
       if (this.funds.funds < this.total) {
-        alert("Insufficent funds to do shooping")
+        this.msg="Insufficent funds to do shooping"
       }
       else {
         this.funds.funds = this.funds.funds - this.total;
@@ -127,11 +117,15 @@ export class CartComponent implements OnInit {
         this.orderService.PostOrderDetails(this.order).subscribe(res => {
           console.log(this.order);
           console.log(res);
-          alert("Order Placed sucessfully");
+          this.msg="Order Placed sucessfully";
           this.items = [];
-          this.router.navigate(['/orders'])
         })
       }
-    })
+    })*/
   }
+}
+
+class Item {
+  constructor(public pname:string,public price:number,public quantity:number=1) {}
+
 }

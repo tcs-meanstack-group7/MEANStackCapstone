@@ -1,24 +1,18 @@
-
-<a [routerLink]="['/products']">Products</a> |
-<a [routerLink]="['/cart']">Cart</a>
-
 <h3>Product List</h3>
 <!--Displaying Products-->
 <table border="1">
-  <tr>
-    <th>Id</th>
+  <tr class="padding-text">
     <th>Name</th>
     <th>Price</th>
 
     <th>Add to cart</th>
   </tr>
   <tr *ngFor="let product of products">
-    <td>{{product._id}}</td>
     <td>{{product.pname}}</td>
     <td>{{product.price}}</td>
 
     <td>
-      <a [routerLink]="['/cart', { id:product._id }]">Add to cart</a>
+      <input type="button" value="Add to Cart" (click)="addToCart(product)" class="btn btn-primary">
     </td>
   </tr>
 </table>

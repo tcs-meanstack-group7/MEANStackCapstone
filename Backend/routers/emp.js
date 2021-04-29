@@ -8,11 +8,13 @@ const { isEmail, hasPassword } = require('../validations/validators')
 router.post("/login", authController.login);
 router.post("/signUp", [hasPassword], authController.signup);
 router.post("/sendRequest", authController.sendrequest)
+router.post("/reviewRequest", authController.reviewRequest)
 router.post("/editProfile", authController.editProfile)
 router.post("/unlock", authController.unlock)
 router.get("/viewTickets", authController.viewTickets)
 
 //delete employee
-router.get("/deleteEmpById/:empId",authController.deleteEmpById);
+router.delete("/deleteEmpById/:empId",authController.deleteEmpById);
+router.delete("/deleteTicket/:email",authController.deleteTickets)
 
 module.exports = router;

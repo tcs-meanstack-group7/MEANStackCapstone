@@ -6,7 +6,7 @@ const Emp = require('../models/employee.model');
 const validationHandler = require('../validations/validationHandler');
 const userModel = require('../models/user.model');
 var { RaiseTicket } = require('../models/employee');
-
+var { Request } = require('../models/admin');
 
 
 exports.login = async(req, res, next) => {
@@ -71,7 +71,14 @@ exports.sendrequest = async(req, res) => {
     })
 
 }
-
+// Admin review request
+exports.reviewRequest = async(req, res) => {
+    Request.find({},(err,result)=>{
+        if(!err){
+            res.json(result);
+        }
+    })
+}
 exports.editProfile = async(req, res) => {
     let emp = new userModel();
     let email = req.body.email;
@@ -80,7 +87,7 @@ exports.editProfile = async(req, res) => {
     userModel.updateOne({ email: email }, { $set: { password: updatedPass } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -97,7 +104,7 @@ exports.unlock = async(req, res) => {
     userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked: false, consecutiveFailed: 0 } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -108,11 +115,11 @@ exports.unlock = async(req, res) => {
 }
 
 exports.deleteEmpById = async(req, res) => {
-    let empId = req.params.empId;
-    Emp.deleteOne({ empId: empId }, (err, result) => {
+    let id = req.params.empId;
+    Emp.deleteOne({ empId: id }, (err, result) => {
         if (!err) {
             if (result.deletedCount > 0) {
-                res.send("Record deleted successfully");
+                res.send({"Response":"Employee deleted successfully"});
             } else {
                 res.send("Record not present");
             }
@@ -123,6 +130,17 @@ exports.deleteEmpById = async(req, res) => {
 }
 exports.viewTickets = async(req, res) => {
     RaiseTicket.find((err, data) => {
+        if (!err) {
+            res.json(data);
+        }
+    })
+}
+
+exports.deleteTickets = async(req, res) => {
+    
+    let email = req.params.email;
+    console.log(email)
+    RaiseTicket.deleteMany({UserEmail:{$eq : req.params.email}} , (err, data) => {
         if (!err) {
             res.json(data);
         }

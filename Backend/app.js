@@ -6,6 +6,8 @@ let mongoose = require("mongoose");
 let cors = require("cors");
 const express = require('express');
 
+//app.use(express.static(process.cwd()));
+
 const passportJWT = require('./middlewares/passportJWT')();
 const errorHandler = require('./middlewares/errorHandler');
 const empRoutes = require("./routers/emp");
@@ -15,11 +17,15 @@ var employeeController = require('./controllers/employeeController.js');
 var ProductController = require('./controllers/ProductController.js');
 var FundsController = require('./controllers/FundsController.js')
 var OrdersController = require('./controllers/OrderController.js')
-
+var emp = require('./controllers/emp.controller')
 
 
 //Database URL Details 
 let url = "mongodb://localhost:27017/meanstack";
+
+/*app.get('/', (req,res) => {
+    res.sendFile(__dirname+"index.html")
+})*/
 
 //middleware enable data from post method.
 app.use(bodyParser.urlencoded({ extended: true })); // enable body part data  
@@ -62,6 +68,7 @@ app.use('/api/user', userRoutes);
 app.use(errorHandler)
 
 app.use('/RaiseTicket', employeeController);
+app.use('/requests', employeeController);
 app.use('/Product', ProductController);
 app.use('/funds', FundsController);
 app.use('/orders', OrdersController);

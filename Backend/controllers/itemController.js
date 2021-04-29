@@ -28,6 +28,8 @@ exports.store = async(req, res, next) => {
         let item = new Item();
         item.name = req.body.name;
         item.price = req.body.price;
+    } catch(err) {
+        next(err);
     }
 }
 

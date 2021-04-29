@@ -48,6 +48,7 @@ export class UserPanelComponent implements OnInit {
 
   showLogout(){
     this.display = "logout";    
+    this.router.navigate(["auser-login"]);
     //this.router.navigate(["index"]);
   }
   
