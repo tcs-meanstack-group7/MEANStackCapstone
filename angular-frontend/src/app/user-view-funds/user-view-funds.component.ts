@@ -10,23 +10,23 @@ import { Router } from '@angular/router';
 })
 export class UserViewFundsComponent implements OnInit {
 
-  constructor(public router:Router,public fundsService:FundsService) { }
-  funds:Number=0
-  msg=""
+  constructor(public router: Router, public fundsService: FundsService) { }
+  funds: Number = 0
+  msg = ""
   ngOnInit(): void {
     let id = sessionStorage.getItem("id")
     console.log(id)
-    
-    this.fundsService.CheckFunds(id).subscribe((result:any)=>{
+
+    this.fundsService.CheckFunds(id).subscribe((result: any) => {
       console.log(result);
       this.funds = result.funds
-      this.msg=""
+      this.msg = ""
 
     },
-      (error:any)=>{
+      (error: any) => {
         console.log(error);
-        this.msg=error;
-        
+        this.msg = error;
+
       })
   }
 
