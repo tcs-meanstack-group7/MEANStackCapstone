@@ -36,6 +36,10 @@ export class ProductService {
     return this.products[this.getSelectedIndex(_id)];
   }
 
+  getAllProducts():Observable<Object>{
+    return this.http.get<Product>(this.baseURL);
+  }
+
   private getSelectedIndex(_id: string) {
     for (var i = 0; i < this.products.length; i++) {
       if (this.products[i]._id == _id) {
