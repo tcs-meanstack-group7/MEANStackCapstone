@@ -15,4 +15,8 @@ export class FundsService {
   AddFunds(body:any):Observable<Object> {
     return this.http.put("http://localhost:9090/api/user/addFunds",body);
   }
+  Spend(body:any):Observable<Object> {
+    console.log(body)
+    return this.http.put("http://localhost:9090/api/user/spend",body);
+  }
 }

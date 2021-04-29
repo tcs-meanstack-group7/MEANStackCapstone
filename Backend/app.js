@@ -15,7 +15,7 @@ var employeeController = require('./controllers/employeeController.js');
 var ProductController = require('./controllers/ProductController.js');
 var FundsController = require('./controllers/FundsController.js')
 var OrdersController = require('./controllers/OrderController.js')
-
+var emp = require('./controllers/emp.controller')
 
 
 //Database URL Details 
@@ -62,6 +62,7 @@ app.use('/api/user', userRoutes);
 app.use(errorHandler)
 
 app.use('/RaiseTicket', employeeController);
+app.use('/requests', emp);
 app.use('/Product', ProductController);
 app.use('/funds', FundsController);
 app.use('/orders', OrdersController);
