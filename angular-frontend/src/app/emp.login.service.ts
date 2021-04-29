@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RaiseTicket } from './employee.model';
 
 
 @Injectable({
@@ -33,8 +34,8 @@ export class LoginService {
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
-  viewTickets(requestRef:any){
-    this.http.get("http://localhost:9090/api/user/viewTickets",requestRef)
+  viewTickets():Observable<RaiseTicket[]>{
+    return this.http.get<RaiseTicket[]>("http://localhost:9090/RaiseTicket/")
   }
 
 
