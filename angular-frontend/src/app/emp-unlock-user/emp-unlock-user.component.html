@@ -1,9 +1,12 @@
-<div>
-    <form #unlockRef="ngForm" (ngSubmit)="unlock(unlockRef.value)">
+<div class="container">
 
-        <label>Email:</label>
-        <input type="email" id="email" name="email" ngModel><br/><br/>
-        <input type="submit" value="Unlock" style='margin-left:30px' class="btn btn-primary" />
+    <form #unlockRef="ngForm" (ngSubmit)="unlock(unlockRef.value)">
+        <h2>Unlock User</h2>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email:</span>
+            <input type="email" id="email" name="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" ngModel><br/><br/>
+        </div>
+        <input type="submit" value="Unlock" class="btn btn-primary" />
         <input type="reset" value="Reset" style='margin-left:16px' class="btn btn-primary" />
     </form>
 </div>

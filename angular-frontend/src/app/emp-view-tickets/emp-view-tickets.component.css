@@ -1,0 +1,16 @@
+h4 {
+    font-family: Garamond, serif;
+    text-align: center;
+}
+
+table {
+    width: 50%;
+    margin-left: 30%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    font-size: medium;
+}
