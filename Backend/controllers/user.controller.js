@@ -53,7 +53,7 @@ exports.addFunds = async (req, res, next) => {
 
         userModel.findOneAndUpdate({_id:id},{$set:{funds:newFunds,bankBalance:newBalance}},(err,result)=> {
             if(!err){  
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             }else {
                 res.send("Error generated "+err);
             }
@@ -87,7 +87,7 @@ exports.edit = async (req, res, next) => {
         console.log(newValues)
         userModel.findOneAndUpdate({_id:id},{$set:newValues},(err,result)=> {
             if(!err){
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             }else {
                 res.send("Error generated "+err);
             }
