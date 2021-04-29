@@ -80,7 +80,7 @@ exports.editProfile = async(req, res) => {
     userModel.updateOne({ email: email }, { $set: { password: updatedPass } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -97,7 +97,7 @@ exports.unlock = async(req, res) => {
     userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked: false, consecutiveFailed: 0 } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -112,7 +112,7 @@ exports.deleteEmpById = async(req, res) => {
     Emp.deleteOne({ empId: empId }, (err, result) => {
         if (!err) {
             if (result.deletedCount > 0) {
-                res.send("Record deleted successfully");
+                res.send({"Response":"Record deleted successfully"});
             } else {
                 res.send("Record not present");
             }
