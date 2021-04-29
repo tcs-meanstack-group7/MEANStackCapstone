@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     let body = {"email": userRef.email,"password": userRef.password,"fname": userRef.fname,"lname": userRef.lname,"dob": userRef.dob,"pnumber": userRef.pnumber,"address": userRef.address}
     this.authService.registerUser(body).subscribe((result:any)=>{
       console.log(result)
-      this.router.navigate(["auser-panel"]);
+      this.router.navigate(["auser-login"]);
     },
       (error:any)=>{
         console.log(error);
