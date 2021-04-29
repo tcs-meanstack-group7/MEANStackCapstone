@@ -12,7 +12,7 @@ export class ProductService {
 
   public products: Product[] = [] ;
   //readonly baseURL = 'http://localhost:9090/product/allProductDetails';
-  baseURL:string="http://54.226.99.137:9090/product/allProductDetails"
+  baseURL:string="http://54.174.70.133:9090/product/allProductDetails"
 
   constructor(private http: HttpClient) {
     

@@ -10,7 +10,7 @@ export class AuthService {
   authToken: any;
   user: any;
   emp: any;
-  ipAddress:string="http://54.226.99.137:9090"
+  ipAddress:string="http://54.174.70.133:9090"
 
   constructor(private http:HttpClient) { }
 

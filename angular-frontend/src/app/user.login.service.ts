@@ -7,7 +7,7 @@ import { User } from './user.model';
   providedIn: 'root'    // it is equal to provided in app.module.ts file 
 })
 export class UserLoginService {
-  ipAddress:string="http://54.226.99.137:9090"
+  ipAddress:string="http://54.174.70.133:9090"
 
   constructor(public http:HttpClient) { }
 
