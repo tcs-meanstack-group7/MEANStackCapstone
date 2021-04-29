@@ -64,10 +64,13 @@ export class CartComponent implements OnInit {
 
      this.fundService.CheckFunds(userid).subscribe((res :any) => {
       //debugger;
-      console.log(res);
+      //console.log(this.total);
       this.funds = res;
      
-      if (this.funds.funds < this.total) {
+      if(this.total==0){
+        this.msg="Please select any product to checkout! "
+      }
+      else if (this.funds.funds < this.total) {
         this.msg="Insufficent Funds"
       }
       else {

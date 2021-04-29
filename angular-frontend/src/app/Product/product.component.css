@@ -1,0 +1,13 @@
+table{
+    width : 50%;
+}
+th{
+    background-color: cornflowerblue;
+    padding: 5px;
+}
+tr{
+    padding-left: 80px !important;
+}
+.padding-text{
+    padding-left: 80px 
+}
