@@ -1,3 +1,15 @@
 .btn {
     margin: 10px;
 }
+
+form {
+    width: 40%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.center {
+    margin-left: 30%;
+}

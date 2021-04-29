@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-emp-panel',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpPanelComponent implements OnInit {
   display:String=""
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +28,9 @@ export class EmpPanelComponent implements OnInit {
     this.display = "editProfile"
   }
 
-  showLogout(){
-    this.display = "logout"
+  logout(){
+    sessionStorage.setItem("token","");
+    sessionStorage.setItem("id","");
+    this.router.navigate(["emp-login"]);
   }
 }

@@ -17,6 +17,7 @@ export class EmpSendRequestComponent implements OnInit {
     this.empService.sendRequest(requestRef);
     this.reset();
   }
-  reset(){ }
+  reset(){}
+  
 
 }
