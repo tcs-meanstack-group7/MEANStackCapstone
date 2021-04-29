@@ -3,3 +3,10 @@ a {
     left: 550px; top: 25px; position: absolute; height: 70px; width: 200px; 
     text-align: center; vertical-align: middle; font-size: 42px; text-decoration: none;
 }
+.design {
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 24px;
+    font-style: oblique;
+    display: block;
+}

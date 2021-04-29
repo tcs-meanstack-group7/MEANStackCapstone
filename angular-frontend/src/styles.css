@@ -8,3 +8,6 @@ body {
     right: 150px;
     background-size: 1050px, 1000px;
 }
+.btn {
+    margin: 10px;
+}
