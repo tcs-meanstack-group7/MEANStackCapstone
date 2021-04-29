@@ -24,6 +24,28 @@ exports.funds = async (req, res, next) => {
         next(err);
     }
 }
+exports.spend = async (req, res, next) => {
+    try{
+        const id = req.body.id;
+        const user = await User.findOne({_id:id});
+        console.log(user)
+        if (!user){
+            const error = new Error("No User Found");
+            error.statusCode = 401;
+            throw error;
+        }
+        newFunds = parseInt(user.funds)-parseInt(req.body.amount)
+        userModel.findOneAndUpdate({_id:id},{$set:{funds:newFunds}},(err,result)=> {
+            if(!err){  
+                res.send({"Response":"Record updated succesfully"})
+            }else {
+                res.send("Error generated "+err);
+            }
+        })
+    }catch(err){
+        next(err);
+    }
+}
 
 exports.addFunds = async (req, res, next) => {
     try{
