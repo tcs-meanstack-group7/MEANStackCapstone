@@ -37,6 +37,11 @@ export class LoginService {
   viewTickets():Observable<RaiseTicket[]>{
     return this.http.get<RaiseTicket[]>("http://localhost:9090/RaiseTicket/")
   }
+  deleteTickets(param:any):Observable<RaiseTicket[]>{
+    console.log(param)
+    return this.http.delete<RaiseTicket[]>("http://localhost:9090/api/emp/deleteTicket/"+param)
+  }
+
 
 
   

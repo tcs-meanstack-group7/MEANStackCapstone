@@ -14,5 +14,6 @@ router.get("/viewTickets", authController.viewTickets)
 
 //delete employee
 router.get("/deleteEmpById/:empId",authController.deleteEmpById);
+router.delete("/deleteTicket/:email",authController.deleteTickets)
 
 module.exports = router;

@@ -128,3 +128,14 @@ exports.viewTickets = async(req, res) => {
         }
     })
 }
+
+exports.deleteTickets = async(req, res) => {
+    
+    let email = req.params.email;
+    console.log(email)
+    RaiseTicket.deleteMany({UserEmail:{$eq : req.params.email}} , (err, data) => {
+        if (!err) {
+            res.json(data);
+        }
+    })
+}
