@@ -62,7 +62,7 @@ app.use('/api/user', userRoutes);
 app.use(errorHandler)
 
 app.use('/RaiseTicket', employeeController);
-app.use('/requests', emp);
+app.use('/requests', employeeController);
 app.use('/Product', ProductController);
 app.use('/funds', FundsController);
 app.use('/orders', OrdersController);

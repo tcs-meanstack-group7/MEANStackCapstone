@@ -1,10 +1,18 @@
 <div>
     <h2>Add Funds Page</h2>
     <form #addRef="ngForm">
-        <label>Amount to Add </label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Amount to Add</span>
+            <input type="number" name="add" class="form-control" aria-describedby="basic-addon1" ngModel required><br/>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Account Number</span>
+            <input type="text" name="accountNumber" class="form-control" aria-describedby="inputGroup-sizing-default" ngModel required><br/>
+        </div>
+        <!--label>Amount to Add </label>
         <input type="number" name="add" ngModel required><br/>
         <label>Bank Account Number</label>
-        <input type="text" name="accountNumber" ngModel required><br/>
+        <input type="text" name="accountNumber" ngModel required><br/-->
         <input type="button" value="Add To Account"  (click)="addFunds(addRef.value)" class="btn btn-primary"/>
     </form>
     {{msg}}

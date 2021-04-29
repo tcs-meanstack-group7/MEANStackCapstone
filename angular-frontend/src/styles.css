@@ -2,12 +2,24 @@
 
 /* photo credits-(https://toonclips.com/design/8205) */
 
-body {
+
+.btn {
+    margin: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.align {
+    text-align: center;
+}
+/*body {
     background-image: url("shoppingPig.png");
     background-repeat: no-repeat;
     right: 150px;
     background-size: 1050px, 1000px;
-}
-.btn {
-    margin: 10px;
+}*/
+div {
+    text-align: center;
 }

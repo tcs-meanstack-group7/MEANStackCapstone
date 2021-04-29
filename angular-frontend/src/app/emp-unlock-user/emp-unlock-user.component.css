@@ -7,3 +7,38 @@ h2 {
     text-align: center;
     font-family: Garamond, serif;
 }
+.button {
+  
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+    float: right;
+    margin-right: 443px !important;
+  }
+  table{
+    width : 70%;
+  }
+  th{
+    background-color: cornflowerblue;
+    padding: 5px;
+  }
+  tr{
+    padding-left: 80px !important;
+    padding-top: 20px;
+  }
+  .padding-text{
+    padding-left: 80px;
+  }
+  .quantity{
+    padding-left:20px;
+  }
+  .price{
+    padding-left: 10px;
+  }
