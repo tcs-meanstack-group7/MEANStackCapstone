@@ -22,6 +22,14 @@ export class OrderService {
     return this.http.post<Order>(this.baseURL+"/getOrders" , body);
   }
 
+  GetAllOrders():Observable<Object>{
+    return this.http.get<Order>(this.baseURL);
+  }
+
+  UpdateOrder(body:any):Observable<Object>{
+    console.log(body)
+    return this.http.put<Order>(this.baseURL+"/update",body);
+  }
  
 
 }

@@ -42,7 +42,7 @@ router.put('/update', (req, res) => {
     newStatus = req.body.status;
     Orders.findOneAndUpdate({_id:oid},{$set:{status:newStatus}},(err,result)=> {
         if(!err){
-            res.send("Record updated succesfully")
+            res.send({"Response":"Record updated succesfully"})
         }else {
             res.send("Error generated "+err);
         }
