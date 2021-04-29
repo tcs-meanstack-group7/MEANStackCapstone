@@ -7,14 +7,16 @@ import { LoginService } from '../emp.login.service';
   styleUrls: ['./emp-edit-profile.component.css']
 })
 export class EmpEditProfileComponent implements OnInit {
-
+  Msg?:string;
   constructor(public employeeSer:LoginService) { }
 
   ngOnInit(): void {
   }
   changePass(changeRef:any){
     console.log(changeRef);
-    this.employeeSer.editProfile(changeRef);
+    this.employeeSer.editProfile(changeRef).subscribe((result:string)=> {
+    this.Msg=result;
+  });
     this.reset();
   }
   reset(){ }
