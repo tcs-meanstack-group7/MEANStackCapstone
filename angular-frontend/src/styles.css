@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* photo credits-(https://toonclips.com/design/8205) */
+
+body {
+    background-image: url("shoppingPig.png");
+    background-repeat: no-repeat;
+    right: 150px;
+    background-size: 1050px, 1000px;
+}
