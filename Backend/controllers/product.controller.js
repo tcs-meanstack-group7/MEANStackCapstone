@@ -50,7 +50,7 @@ let deleteProductById= (req,res)=> {
     ProductModel.deleteOne({_id:pid},(err,result)=> {
         if(!err){
                 if(result.deletedCount>0){
-                    res.send("Record deleted successfully")
+                    res.send({"Response":"Record deleted successfully"})
                 }else {
                     res.send("Record not present");
                 }
@@ -58,7 +58,6 @@ let deleteProductById= (req,res)=> {
             res.send("Error generated "+err);
         }
     })
-
 }
 
 let updateProductPrice= (req,res)=> {
@@ -68,7 +67,7 @@ let updateProductPrice= (req,res)=> {
     ProductModel.updateMany({_id:pid},{$set:{quantity:updatedQty,price:updatedPrice}},(err,result)=> {
         if(!err){
             if(result.nModified>0){
-                    res.send("Record updated succesfully")
+                    res.send({"Response":"Record updated succesfully"})
             }else {
                     res.send("Record is not available");
             }

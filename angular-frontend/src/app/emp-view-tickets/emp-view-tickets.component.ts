@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../emp.login.service';
+import { RaiseTicket } from '../employee.model';
 
 
 @Component({
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emp-view-tickets.component.css']
 })
 export class EmpViewTicketsComponent implements OnInit {
-
-  constructor() { }
+  tickets?:Array<RaiseTicket>
+  constructor(public ticketSer:LoginService) { }
 
   ngOnInit(): void {
+    this.ticketSer.viewTickets().subscribe(result=>this.tickets=result);
+
   
   }
   

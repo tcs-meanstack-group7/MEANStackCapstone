@@ -1,18 +1,18 @@
 <div>
     <h2>Order Status</h2>
-<div *ngIf="orders.length>0">
-    <table border="1">
-        <tr>
+    <div *ngIf="orders.length>0">
+        <table border="1">
+            <tr>
 
-            <th>Order Id</th>  
-            <th>Amount</th>
-            <th>Status</th>
-        </tr>
-        <tbody *ngFor="let o of orders"> 
-            <td>{{o._id}}</td>
-            <td>{{o.amount}}</td>
-            <td>{{o.status}}</td>            
-        </tbody>
-</table>
-</div>
+                <th>Order Id</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+            <tbody *ngFor="let o of orders">
+                <td>{{o._id}}</td>
+                <td>{{o.amount}}</td>
+                <td>{{o.status}}</td>
+            </tbody>
+        </table>
+    </div>
 </div>

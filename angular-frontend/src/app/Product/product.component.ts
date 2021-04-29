@@ -18,13 +18,34 @@ export class ProductComponent implements OnInit {
 
   //Fetching products from product table
   ngOnInit() {
-    debugger;
     this.productService.findAll().subscribe((res: Product[]) => {
       this.products = res;
       console.log(res);
       console.log(this.products);
     });
+
   }
 
+  addToCart(product: any) {
+    let item2add = new Item(product.pname,product.price) 
+    product.quantity = 1;
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    if (cart.some((p:Item) => p.pname == item2add.pname)) {
+      cart.forEach((p:Item) => {
+        if (p.pname == item2add.pname) {
+          p.quantity += 1;
+        }
+      })
+    }
+    else {
+      cart.push(item2add)
+    }
+    localStorage.setItem('cart',JSON.stringify(cart))
+  }
+
+}
+
+class Item {
+  constructor(public pname:string,public price:number,public quantity:number=1) {}
 
 }

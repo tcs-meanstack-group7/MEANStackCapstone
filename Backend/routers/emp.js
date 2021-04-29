@@ -13,4 +13,8 @@ router.post("/editProfile", authController.editProfile)
 router.post("/unlock", authController.unlock)
 router.get("/viewTickets", authController.viewTickets)
 
+//delete employee
+router.delete("/deleteEmpById/:empId",authController.deleteEmpById);
+router.delete("/deleteTicket/:email",authController.deleteTickets)
+
 module.exports = router;

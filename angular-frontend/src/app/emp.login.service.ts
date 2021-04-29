@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Request } from './request.model';
 
+import { RaiseTicket } from './employee.model';
+
 
 @Injectable({
   providedIn: 'root'    // it is equal to provided in app.module.ts file 
@@ -34,9 +36,18 @@ export class LoginService {
     subscribe(result=>console.log(result),error=>console.log(error));
   }
 
-  viewTickets(requestRef:any){
-    this.http.get("http://localhost:9090/api/user/viewTickets",requestRef)
+  viewTickets():Observable<RaiseTicket[]>{
+    return this.http.get<RaiseTicket[]>("http://localhost:9090/RaiseTicket/")
   }
+  deleteTickets(param:any):Observable<RaiseTicket[]>{
+    console.log(param)
+    return this.http.delete<RaiseTicket[]>("http://localhost:9090/api/emp/deleteTicket/"+param)
+  }
+  deleteEmp(param:any):Observable<RaiseTicket[]>{
+    console.log(param)
+    return this.http.delete<RaiseTicket[]>("http://localhost:9090/api/emp/deleteEmpById/"+param)
+  }
+
 
 
   

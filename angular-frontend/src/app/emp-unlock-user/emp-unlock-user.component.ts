@@ -13,8 +13,14 @@ export class EmpUnlockUserComponent implements OnInit {
   ngOnInit(): void {
   }
   unlock(unlockRef:any){
-    console.log(unlockRef);
     this.unlockService.unlockUser(unlockRef);
+    this.unlockService.deleteTickets(unlockRef.email).subscribe((result:any)=>{
+      console.log(result)
+    },
+      (error:any)=>{
+        console.log(error);
+
+      })
     this.reset();
   }
   reset(){ }

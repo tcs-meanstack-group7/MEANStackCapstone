@@ -87,7 +87,7 @@ exports.editProfile = async(req, res) => {
     userModel.updateOne({ email: email }, { $set: { password: updatedPass } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -104,7 +104,7 @@ exports.unlock = async(req, res) => {
     userModel.updateOne({ email: req.body.email }, { $set: { password: newPassword, isLocked: false, consecutiveFailed: 0 } }, (err, result) => {
         if (!err) {
             if (result.nModified > 0) {
-                res.send("Record updated succesfully")
+                res.send({"Response":"Record updated succesfully"})
             } else {
                 res.send("Record is not available");
             }
@@ -114,8 +114,33 @@ exports.unlock = async(req, res) => {
     })
 }
 
+exports.deleteEmpById = async(req, res) => {
+    let id = req.params.empId;
+    Emp.deleteOne({ empId: id }, (err, result) => {
+        if (!err) {
+            if (result.deletedCount > 0) {
+                res.send({"Response":"Employee deleted successfully"});
+            } else {
+                res.send("Record not present");
+            }
+        } else {
+            res.send("Error generated " + err);
+        }
+    });
+}
 exports.viewTickets = async(req, res) => {
     RaiseTicket.find((err, data) => {
+        if (!err) {
+            res.json(data);
+        }
+    })
+}
+
+exports.deleteTickets = async(req, res) => {
+    
+    let email = req.params.email;
+    console.log(email)
+    RaiseTicket.deleteMany({UserEmail:{$eq : req.params.email}} , (err, data) => {
         if (!err) {
             res.json(data);
         }
