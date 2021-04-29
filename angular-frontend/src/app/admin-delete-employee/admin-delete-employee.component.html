@@ -1,8 +1,10 @@
 <div>
-    <h2>Delete Employee by EmpId</h2>
-    EmpId: <input type="text" #empId/><br/>
-    <input type="button" value="Delete"
-    (click)="deleteEmp(empId.value)"/><br/>
-    {{deleteMsg}}
+    <h2>Delete Employee</h2>
+    <form #empRef="ngForm">
+        <label>Employee ID </label>
+        <input type="text" name="empid" ngModel required><br/>
+        <input type="button" value="Delete Employee"  (click)="deleteEmp(empRef.value)" class="btn btn-primary"/>
+    </form>
+    {{msg}}
 </div>
 
