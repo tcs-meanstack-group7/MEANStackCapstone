@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     var orders = new Orders({
         id: req.body.id,
+        name: req.body.name,
         emailid: req.body.emailid,
         amount: req.body.amount,
         status : req.body.status,
