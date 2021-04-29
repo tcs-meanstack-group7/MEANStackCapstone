@@ -6,3 +6,6 @@ export class EmployeeRequest{
     constructor(public productname:string,public quantity:number){}
 }
 
+export class RaiseTicket{
+    constructor(public UserEmail:string,public Reason:string){}
+}
