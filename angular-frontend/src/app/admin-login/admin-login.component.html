@@ -2,10 +2,19 @@
     <h2>Admin Login Page</h2>
     <title>Admin</title>
     <form [formGroup]="loginRef" (ngSubmit)="checkAdmin()">
-        <label>UserName: </label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1" >Username</span>
+            <input type="text" name="_id" class="form-control" formControlName="user" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1"><br/>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+            <input type="password" name="password" formControlName="pass" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><br/>
+        </div>
+        
+        <!--label>UserName: </label>
         <input type="text" formControlName="user"/><br/>
         <label>Password: </label>
-        <input type="password" formControlName="pass"/><br/>
+        <input type="password" formControlName="pass"/><br/-->
         <input type="submit" value="Log In" class="btn btn-primary"/>
         <input type="reset" value="Reset" class="btn btn-primary"/>
         <input type="button" value="Go Back" (click)="index()" class="btn btn-primary"/>
