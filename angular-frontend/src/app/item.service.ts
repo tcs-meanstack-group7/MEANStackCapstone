@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ItemService {
-  ipAddress:string="http://54.226.99.137:9090"
+  ipAddress:string="http://54.174.70.133:9090"
   deleteById(id: any) {
     throw new Error('Method not implemented.');
   }
